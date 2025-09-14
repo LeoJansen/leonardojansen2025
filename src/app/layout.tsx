@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+// Using the automatic React JSX runtime – no need to import React.
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
