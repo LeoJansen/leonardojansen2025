@@ -22,8 +22,6 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
-
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
@@ -32,5 +30,16 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Media for VideoText
+
+The hero uses a video texture for animated text. To enable it:
+
+- Place a supported video in `public/` (for example `public/intro.mp4`). Prefer MP4 (H.264 + AAC) or WebM (VP8/VP9).
+- Pass the path as an absolute URL from the public folder (e.g. `/intro.mp4`) to `VideoText` via the `videoSrc` prop.
+- If no `videoSrc` is provided or the source is unsupported/missing, the component falls back to a plain material without video.
+
+Notes:
+- Autoplay requires the video to be muted and `playsInline` (handled in the component).
+- If you see `NotSupportedError: Failed to load because no supported source was found.`, verify the file exists under `/public`, the path is correct, and the codec is supported by your browser.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
