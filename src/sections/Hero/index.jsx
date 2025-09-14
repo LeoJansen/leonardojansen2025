@@ -2,7 +2,7 @@
 
 import { Canvas } from '@react-three/fiber'
 
-import { Button } from '../ui/button';
+import { Button } from '../../components/ui/button';
 import { CanvasComponent } from './comp/CanvasComponent';
 
 export default function Hero() {
@@ -11,7 +11,7 @@ export default function Hero() {
   return (
     <section id="home" className='relative w-screen h-screen overflow-hidden'>
       <div className="absolute inset-0">
-        <Canvas className="!w-full !h-full" gl={{ alpha: false }} dpr={[1, 1.5]} camera={{ position: [0, 3, 13], fov: 15 }}>
+        <Canvas shadows className="!w-full !h-full" gl={{ alpha: false, physicallyCorrectLights: true }} dpr={[1, 1.5]} camera={{ position: [0, 3, 13], fov: 15 }}>
           <CanvasComponent />
         </Canvas>
       </div>

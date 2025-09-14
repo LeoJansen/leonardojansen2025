@@ -11,14 +11,14 @@ export const calculateSizes = (isSmall, isMobile, isTablet, isPC, isXL) => {
 
       videoText: {
         text1: {
-          position: [-0.16782, -0.2589, -7],
+          position: [-0.16782, -0.2589, -5],
           rotation: [0, 0, 0],
           scale: 1,
           fontSize: 0.4
 
         },
         text2: {
-          position: [0, -1, -7],
+          position: [0, -1, -5],
           rotation: [0, 0, 0],
           scale: 1,
           fontSize: 1.5
@@ -39,14 +39,14 @@ export const calculateSizes = (isSmall, isMobile, isTablet, isPC, isXL) => {
       },
       videoText: {
         text1: {
-          position: [-0.2125, 0.05, -7],
+          position: [-0.2125, 0.05, -4],
           rotation: [0, 0, 0],
           scale: 1,
           fontSize: 0.5
 
         },
         text2: {
-          position: [0.2, -0.981, -7],
+          position: [0.2, -0.981, -4],
           rotation: [0, 0, 0],
           scale: 1,
           fontSize: 2
@@ -67,14 +67,14 @@ export const calculateSizes = (isSmall, isMobile, isTablet, isPC, isXL) => {
       },
       videoText: {
         text1: {
-          position: [-0.61, 0.5, -7],
+          position: [-0.61, 0.5, -4],
           rotation: [0, 0, 0],
           scale: 1,
           fontSize: 0.6
 
         },
         text2: {
-          position: [0, -0.81, -7],
+          position: [0, -0.81, -4],
           rotation: [0, 0, 0],
           scale: 1,
           fontSize: 2.8
@@ -95,14 +95,14 @@ export const calculateSizes = (isSmall, isMobile, isTablet, isPC, isXL) => {
       },
       videoText: {
         text1: {
-          position: [-0.61, 0.5, -8],
+          position: [-0.61, 0.5, -4],
           rotation: [0, 0, 0],
           scale: 1,
           fontSize: 0.6
 
         },
         text2: {
-          position: [0, -0.81, -8],
+          position: [0, -0.81, -4],
           rotation: [0, 0, 0],
           scale: 1,
           fontSize: 2.8
@@ -122,15 +122,16 @@ export const calculateSizes = (isSmall, isMobile, isTablet, isPC, isXL) => {
       },
       videoText: {
         text1: {
-          position: [-0.61, 0.5, -8],
+          position: [-0.5495681, 0.6, -7],
 
           scale: 1,
-          fontSize: 0.6
+          fontSize: 0.7
 
         },
         text2: {
-          position: [0, -0.81, -8],
-          fontSize: 2.8,
+          position: [0, -0.81, -7],
+          fontSize: 3,
+       
 
         },
       },

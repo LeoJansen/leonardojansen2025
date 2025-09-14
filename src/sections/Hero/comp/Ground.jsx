@@ -3,7 +3,7 @@ import { MeshReflectorMaterial } from "@react-three/drei"
 
 export function Ground() {
   return (
-    <mesh rotation={[-Math.PI / 2, 0, Math.PI / 2]} position={[0, -2, 0]}>
+    <mesh rotation={[-Math.PI / 2, 0, Math.PI / 2]} position={[0, -2, 0]} receiveShadow>
       <planeGeometry args={[100, 100]} />
       <MeshReflectorMaterial
         // Reflection quality
