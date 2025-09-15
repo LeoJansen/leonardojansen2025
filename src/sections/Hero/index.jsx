@@ -5,15 +5,10 @@ import { Canvas } from '@react-three/fiber'
 import { Button } from '../../components/ui/button';
 import { CanvasComponent } from './comp/CanvasComponent';
 import { useCallback, useState } from 'react';
+import Image from 'next/image';
 
 export default function Hero() {
   const [spotsOn, setSpotsOn] = useState(true)
-  const handlePointerDown = useCallback((e) => {
-    // Left button only
-    if (e.button === 0) {
-      setSpotsOn((v) => !v)
-    }
-  }, [])
 
   return (
     <section id="home" className='relative w-screen h-screen overflow-hidden'>
@@ -24,10 +19,20 @@ export default function Hero() {
           gl={{ alpha: false, physicallyCorrectLights: true }}
           dpr={[1, 1.5]}
           camera={{ position: [0, 3, 13], fov: 15 }}
-          onPointerDown={handlePointerDown}
+         
         >
           <CanvasComponent spotsOn={spotsOn} />
         </Canvas>
+      </div>
+      <div  onClick={() => setSpotsOn((v) => !v)}>
+      <Image
+        src="/assets/switch.svg"
+        alt="Switch"
+        width={40}
+        height={40}
+        className="absolute bottom-50 right-20 w-10 h-10 z-10 cursor-pointer select-none"
+       
+      />
       </div>
       <div className="absolute bottom-7 left-0 right-0 w-full z-10 c-space">
         {/* <a href="#about" className="w-fit">
