@@ -6,9 +6,14 @@ import { Button } from '../../components/ui/button';
 import { CanvasComponent } from './comp/CanvasComponent';
 import { useCallback, useState } from 'react';
 import Image from 'next/image';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export default function Hero() {
-  const [spotsOn, setSpotsOn] = useState(true)
+  const [spotsOn, setSpotsOn] = useState(false)
 
   return (
     <section id="home" className='relative w-screen h-screen overflow-hidden'>
@@ -25,7 +30,9 @@ export default function Hero() {
         </Canvas>
       </div>
       <div  onClick={() => setSpotsOn((v) => !v)}>
-      <Image
+         <Tooltip defaultOpen={true}>
+      <TooltipTrigger asChild>
+          <Image
         src="/assets/switch.svg"
         alt="Switch"
         width={40}
@@ -33,6 +40,12 @@ export default function Hero() {
         className="absolute bottom-50 right-20 w-10 h-10 z-10 cursor-pointer select-none"
        
       />
+      </TooltipTrigger>
+      <TooltipContent>
+        <p>Turn on the lights</p>
+      </TooltipContent>
+    </Tooltip>
+    
       </div>
       <div className="absolute bottom-7 left-0 right-0 w-full z-10 c-space">
         {/* <a href="#about" className="w-fit">
