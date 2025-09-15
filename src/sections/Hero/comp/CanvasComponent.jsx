@@ -36,8 +36,8 @@ export const CanvasComponent = () => {
   <directionalLight position={[-2, 5, -8]} intensity={0.18415}     color="#6C0EBF" />
 
         {/* MovingSpot lights like in the provided example */}
-        <MovingSpot depthBuffer={depthBuffer} color="#8C162E" opacity={0.85} position={[1, 2, 2]} />
-        <MovingSpot depthBuffer={depthBuffer} color="#26168C" opacity={0.65} position={[-1, 2, 0]} />
+        <MovingSpot depthBuffer={depthBuffer} color="rgb(105, 152, 255)" opacity={0.85} position={[1, 2, 2]} />
+        <MovingSpot depthBuffer={depthBuffer} color="rgb(150, 51, 250)" opacity={0.85} position={[-1, 2, 0]} />
 
         <group ref={ref}>
           <Chair scale={chair.scale} position={chair.position} rotation={chair.rotation} />
