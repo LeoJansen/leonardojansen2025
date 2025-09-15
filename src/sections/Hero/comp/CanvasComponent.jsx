@@ -15,7 +15,7 @@ import { calculateSizes } from "./sizes";
 
 
 
-export const CanvasComponent = () => {
+export const CanvasComponent = ({ spotsOn = true }) => {
   const isSmall = useMediaQuery({ maxWidth: 440 });
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
@@ -35,9 +35,21 @@ export const CanvasComponent = () => {
   {/* optional fill; keep low or remove if too bright */}
   <directionalLight position={[-2, 5, -8]} intensity={0.18415}     color="#6C0EBF" />
 
-        {/* MovingSpot lights like in the provided example */}
-        <MovingSpot depthBuffer={depthBuffer} color="rgb(105, 152, 255)" opacity={0.85} position={[1, 2, 2]} />
-        <MovingSpot depthBuffer={depthBuffer} color="rgb(150, 51, 250)" opacity={0.85} position={[-1, 2, 0]} />
+        {/* MovingSpot lights like in the provided example; toggle with left-click */}
+        <MovingSpot
+          depthBuffer={depthBuffer}
+          color="rgb(105, 152, 255)"
+          opacity={spotsOn ? 0.85 : 0}
+          position={[1, 2, -1]}
+          enabled={spotsOn}
+        />
+        <MovingSpot
+          depthBuffer={depthBuffer}
+          color="rgb(150, 51, 250)"
+          opacity={spotsOn ? 0.85 : 0}
+          position={[-1, 2, 0.91]}
+          enabled={spotsOn}
+        />
 
         <group ref={ref}>
           <Chair scale={chair.scale} position={chair.position} rotation={chair.rotation} />
@@ -67,11 +79,12 @@ export const CanvasComponent = () => {
   );
 };
 
-function MovingSpot({ vec = new Vector3(), ...props }) {
+function MovingSpot({ vec = new Vector3(), enabled = true, ...props }) {
   const light = useRef()
   const viewport = useThree((state) => state.viewport)
   useFrame((state) => {
     if (!light.current) return
+    if (!enabled) return
     light.current.target.position.lerp(
       vec.set((state.mouse.x * viewport.width) / 2, (state.mouse.y * viewport.height) / 2, 0),
       0.1
@@ -84,10 +97,10 @@ function MovingSpot({ vec = new Vector3(), ...props }) {
       ref={light}
       penumbra={1}
       distance={16}
-      angle={0.9135}
+      angle={0.554579135}
       attenuation={5}
       anglePower={4}
-      intensity={1122}
+      intensity={enabled ? 1122 : 0}
       // Improve shadow quality for moving spotlights
       shadow-bias={-0.0005}
       shadow-normalBias={0.02}

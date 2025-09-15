@@ -7,17 +7,17 @@ export function Ground() {
       <planeGeometry args={[100, 100]} />
       <MeshReflectorMaterial
         // Reflection quality
-        blur={[400, 100]}
-        resolution={512}
-        mixBlur={6}
+        blur={[20, 10]}
+        resolution={2048}
+        mixBlur={3}
         mixContrast={1}
-        mixStrength={111.5}
+        mixStrength={11.5}
         mirror={0.19}
 
         // Look & feel
-        color="rgb(25,155,155)"
-        metalness={0.8}
-        roughness={0.7}
+        color="rgb(152,155,155)"
+        metalness={0.79}
+        roughness={0.19}
       />
     </mesh>
   )
