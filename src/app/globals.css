@@ -120,3 +120,68 @@
     @apply bg-background text-foreground;
   }
 }
+/* Color Theme Swatches in Hex */
+.leonardojansen.com-1-hex { color: #4600E6; }
+.leonardojansen.com-2-hex { color: #DC00E6; }
+.leonardojansen.com-3-hex { color: #9100E6; }
+.leonardojansen.com-4-hex { color: #0005E6; }
+.leonardojansen.com-5-hex { color: #E6006C; }
+.leonardojansen.com-6-hex { color: #A129A6; }
+.leonardojansen.com-7-hex { color: #4F29A6; }
+.leonardojansen.com-8-hex { color: #A22EE6; }
+.leonardojansen.com-9-hex { color: #33262C; }
+.leonardojansen.com-10-hex { color: #262733; }
+.leonardojansen.com-11-hex { color: #322633; }
+.leonardojansen.com-12-hex { color: #2A2633; }
+.leonardojansen.com-13-hex { color: #C48AE6; }
+.leonardojansen.com-14-hex { color: #66334B; }
+.leonardojansen.com-15-hex { color: #333466; }
+.leonardojansen.com-16-hex { color: #643366; }
+.leonardojansen.com-17-hex { color: #433366; }
+.leonardojansen.com-18-hex { color: #B35CE6; }
+.leonardojansen.com-19-hex { color: #A62964; }
+.leonardojansen.com-20-hex { color: #292CA6; }
+
+/* Color Theme Swatches in RGBA */
+.leonardojansen.com-1-rgba { color: rgba(70, 0, 230, 1); }
+.leonardojansen.com-2-rgba { color: rgba(220, 0, 230, 1); }
+.leonardojansen.com-3-rgba { color: rgba(145, 0, 230, 1); }
+.leonardojansen.com-4-rgba { color: rgba(0, 5, 230, 1); }
+.leonardojansen.com-5-rgba { color: rgba(230, 0, 108, 1); }
+.leonardojansen.com-6-rgba { color: rgba(161, 41, 166, 1); }
+.leonardojansen.com-7-rgba { color: rgba(79, 41, 166, 1); }
+.leonardojansen.com-8-rgba { color: rgba(162, 46, 230, 1); }
+.leonardojansen.com-9-rgba { color: rgba(51, 38, 44, 1); }
+.leonardojansen.com-10-rgba { color: rgba(38, 39, 51, 1); }
+.leonardojansen.com-11-rgba { color: rgba(50, 38, 51, 1); }
+.leonardojansen.com-12-rgba { color: rgba(42, 38, 51, 1); }
+.leonardojansen.com-13-rgba { color: rgba(196, 138, 230, 1); }
+.leonardojansen.com-14-rgba { color: rgba(102, 51, 75, 1); }
+.leonardojansen.com-15-rgba { color: rgba(51, 52, 102, 1); }
+.leonardojansen.com-16-rgba { color: rgba(100, 51, 102, 1); }
+.leonardojansen.com-17-rgba { color: rgba(67, 51, 102, 1); }
+.leonardojansen.com-18-rgba { color: rgba(179, 92, 230, 1); }
+.leonardojansen.com-19-rgba { color: rgba(166, 41, 100, 1); }
+.leonardojansen.com-20-rgba { color: rgba(41, 44, 166, 1); }
+
+/* Color Theme Swatches in HSLA */
+.leonardojansen.com-1-hsla { color: hsla(258, 100, 45, 1); }
+.leonardojansen.com-2-hsla { color: hsla(297, 100, 45, 1); }
+.leonardojansen.com-3-hsla { color: hsla(277, 100, 45, 1); }
+.leonardojansen.com-4-hsla { color: hsla(238, 100, 45, 1); }
+.leonardojansen.com-5-hsla { color: hsla(331, 100, 45, 1); }
+.leonardojansen.com-6-hsla { color: hsla(297, 60, 40, 1); }
+.leonardojansen.com-7-hsla { color: hsla(258, 60, 40, 1); }
+.leonardojansen.com-8-hsla { color: hsla(277, 78, 54, 1); }
+.leonardojansen.com-9-hsla { color: hsla(332, 14, 17, 1); }
+.leonardojansen.com-10-hsla { color: hsla(235, 14, 17, 1); }
+.leonardojansen.com-11-hsla { color: hsla(295, 14, 17, 1); }
+.leonardojansen.com-12-hsla { color: hsla(258, 14, 17, 1); }
+.leonardojansen.com-13-hsla { color: hsla(277, 64, 72, 1); }
+.leonardojansen.com-14-hsla { color: hsla(331, 33, 30, 1); }
+.leonardojansen.com-15-hsla { color: hsla(238, 33, 30, 1); }
+.leonardojansen.com-16-hsla { color: hsla(297, 33, 30, 1); }
+.leonardojansen.com-17-hsla { color: hsla(258, 33, 30, 1); }
+.leonardojansen.com-18-hsla { color: hsla(277, 73, 63, 1); }
+.leonardojansen.com-19-hsla { color: hsla(331, 60, 40, 1); }
+.leonardojansen.com-20-hsla { color: hsla(238, 60, 40, 1); }

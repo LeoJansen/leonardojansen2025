@@ -16,9 +16,9 @@ export default function Hero() {
         </Canvas>
       </div>
       <div className="absolute bottom-7 left-0 right-0 w-full z-10 c-space">
-        <a href="#about" className="w-fit">
+        {/* <a href="#about" className="w-fit">
           <Button className="sm:w-fit w-full sm:min-w-96">Let's work together</Button>
-        </a>
+        </a> */}
       </div>
     </section>
   )

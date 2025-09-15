@@ -1,15 +1,15 @@
 "use client";
-import { useFrame } from "@react-three/fiber";
-import * as THREE from 'three'
-import { Suspense, useEffect, useRef, useState } from "react";
-import { SpotLight as VolumetricSpotLight, ContactShadows } from "@react-three/drei";
+import { useFrame, useThree } from "@react-three/fiber";
+import { Vector3 } from 'three'
+import { Suspense, useRef } from "react";
+import { SpotLight, ContactShadows, useDepthBuffer } from "@react-three/drei";
 import { Chair } from "./Chair";
 import { Model as Avatar } from "./Avatar";
 import { Ground } from "./Ground";
 import { VideoText } from "./VideoText";
 import { useMediaQuery } from "react-responsive";
 import { calculateSizes } from "./sizes";
-import CanvasLoader from "../../../components/CanvasLoader";
+// Removed CanvasLoader from Suspense fallback to avoid setState during render warnings
 
 
 
@@ -23,53 +23,21 @@ export const CanvasComponent = () => {
   const isXL = useMediaQuery({ minWidth: 1440 });
   const { avatar, videoText, chair} = calculateSizes(isSmall, isMobile, isTablet, isPC, isXL);
   const ref = useRef();
-  const spotRef = useRef();
-
-  // Keep the spotlight aimed at the ground beneath the avatar
-  useEffect(() => {
-    if (!spotRef.current) return
-    const target = spotRef.current.target
-    target.position.set(avatar.position[0], -2, avatar.position[2])
-    target.updateMatrixWorld()
-  }, [avatar.position])
+  const depthBuffer = useDepthBuffer({ frames: 1 })
 
   return (
     <>
-      <Suspense fallback={<CanvasLoader/>}>
+  <Suspense fallback={null}>
         <color attach="background" args={['black']} />
         <fog attach="fog" args={['black', 15, 20]} />
   {/* Low ambient to leave stage in penumbra */}
-  <ambientLight intensity={0.76412} />
+  <ambientLight intensity={0.176412} />
   {/* optional fill; keep low or remove if too bright */}
-  <directionalLight position={[-2, 5, -8]} intensity={0.8415}     color="#6C0EBF" />
+  <directionalLight position={[-2, 5, -8]} intensity={0.18415}     color="#6C0EBF" />
 
-        {/* Top-down spotlight to form a circular pool on the ground under the avatar */}
-        <spotLight
-          ref={spotRef}
-          castShadow
-          position={[5, 2, 1]}
-          angle={0.192}
-          penumbra={0.6}
-          intensity={1.0}
-          distance={12}
-          decay={2}
-          shadow-bias={-0.0005}
-          shadow-normalBias={0.02}
-          shadow-mapSize-width={1024}
-          shadow-mapSize-height={1024}
-     
-        >
-          {/* Volumetric beam visual (does not cast light, just visuals). Must be a child of a SpotLight light. */}
-          <VolumetricSpotLight
-
-            distance={10}
-            angle={0.161820178919228}
-            attenuation={100}
-            anglePower={2}
-            color="#AE7FD8"
-            opacity={0.102595049}
-          />
-        </spotLight>
+        {/* MovingSpot lights like in the provided example */}
+        <MovingSpot depthBuffer={depthBuffer} color="#8C162E" opacity={0.85} position={[1, 2, 2]} />
+        <MovingSpot depthBuffer={depthBuffer} color="#26168C" opacity={0.65} position={[-1, 2, 0]} />
 
         <group ref={ref}>
           <Chair scale={chair.scale} position={chair.position} rotation={chair.rotation} />
@@ -80,7 +48,7 @@ export const CanvasComponent = () => {
           {/* Subtle contact shadow pool to ground the character */}
           <ContactShadows
             position={[0, -2.001, 0]}
-            opacity={0.6}
+            opacity={0.35}
             scale={20}
             blur={2.5}
             far={10}
@@ -93,17 +61,40 @@ export const CanvasComponent = () => {
 
 
         </group>
-        <Intro />
+        {/* Two interactive SpotLights following the mouse (viewport-scaled) */}
       </Suspense>
     </>
   );
 };
 
-
-function Intro() {
-  const [vec] = useState(() => new THREE.Vector3())
-  return useFrame((state) => {
-    state.camera.position.lerp(vec.set(state.pointer.x * 5, 3 + state.pointer.y * 2, 13), 0.05)
-    state.camera.lookAt(0, 0, 0)
+function MovingSpot({ vec = new Vector3(), ...props }) {
+  const light = useRef()
+  const viewport = useThree((state) => state.viewport)
+  useFrame((state) => {
+    if (!light.current) return
+    light.current.target.position.lerp(
+      vec.set((state.mouse.x * viewport.width) / 2, (state.mouse.y * viewport.height) / 2, 0),
+      0.1
+    )
+    light.current.target.updateMatrixWorld()
   })
+  return (
+    <SpotLight
+      castShadow
+      ref={light}
+      penumbra={1}
+      distance={16}
+      angle={0.9135}
+      attenuation={5}
+      anglePower={4}
+      intensity={1122}
+      // Improve shadow quality for moving spotlights
+      shadow-bias={-0.0005}
+      shadow-normalBias={0.02}
+      shadow-mapSize-width={2048}
+      shadow-mapSize-height={2048}
+      shadow-radius={32}
+      {...props}
+    />
+  )
 }

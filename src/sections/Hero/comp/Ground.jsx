@@ -3,7 +3,7 @@ import { MeshReflectorMaterial } from "@react-three/drei"
 
 export function Ground() {
   return (
-    <mesh rotation={[-Math.PI / 2, 0, Math.PI / 2]} position={[0, -2, 0]} receiveShadow>
+    <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]} position={[0, -2, 0]}>
       <planeGeometry args={[100, 100]} />
       <MeshReflectorMaterial
         // Reflection quality
@@ -15,9 +15,9 @@ export function Ground() {
         mirror={0.19}
 
         // Look & feel
-        color="rgb(80,30,120)"
-        metalness={0.9}
-        roughness={0.6}
+        color="rgb(25,155,155)"
+        metalness={0.8}
+        roughness={0.7}
       />
     </mesh>
   )
