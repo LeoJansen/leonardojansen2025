@@ -7,7 +7,7 @@ import Contact from '../sections/Contact'
 
 const App = () => {
   return (
-    <div>
+    <div className='bg-[#070707]'>
         <Topbar/>
         <Hero/>
         <About/>

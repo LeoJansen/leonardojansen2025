@@ -47,7 +47,7 @@ const Topbar = () => {
   }, [])
 
   return (
-    <nav ref={containerRef} className='absolute flex w-full h-16 items-center justify-center z-20'>
+    <nav ref={containerRef} className='absolute flex w-full h-16 items-center justify-center z-20 '>
       <div className='fixed flex items-center gap-8 bg-[#0000002a] rounded-[20px] h-10 px-8 py-0 hover:backdrop-blur-[1px] transition-all transition- transition-discrete hover:bg-[#080808]'>
         {items.map((label) => (
           <Button key={label} variant='ghost' size='sm' className='topbar-btn text-[#746A76] tracking-widest'>
