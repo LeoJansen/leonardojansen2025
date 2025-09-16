@@ -6,7 +6,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-open-sans);
+  --font-title: var(--font-poppins);
   --font-mono: var(--font-geist-mono);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -45,71 +46,39 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-}
-
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: #ffffff;
+  --foreground: #232323;
+  --card: #ffffff;
+  --card-foreground: #232323;
+  --popover: #ffffff;
+  --popover-foreground: #232323;
+  --primary: #343434;
+  --primary-foreground: #fbfbfb;
+  --secondary: #f7f7f7;
+  --secondary-foreground: #343434;
+  --muted: #f7f7f7;
+  --muted-foreground: #8a8a8a;
+  --accent: #f7f7f7;
+  --accent-foreground: #8e7b94;
+  --destructive: #DC2626;
+  --border: #ececec;
+  --input: #ececec;
+  --ring: #b3b3b3;
+  --chart-1: #F59E0B;
+  --chart-2: #06B6D4;
+  --chart-3: #3B82F6;
+  --chart-4: #84CC16;
+  --chart-5: #22C55E;
+  --sidebar: #fbfbfb;
+  --sidebar-foreground: #232323;
+  --sidebar-primary: #343434;
+  --sidebar-primary-foreground: #fbfbfb;
+  --sidebar-accent: #f7f7f7;
+  --sidebar-accent-foreground: #343434;
+  --sidebar-border: #ececec;
+  --sidebar-ring: #b3b3b3;
+  /* Force UA widgets (scrollbars, inputs) to light tone regardless of OS */
+  color-scheme: light;
 }
 
 @layer base {
@@ -117,71 +86,18 @@
     @apply border-border outline-ring/50;
   }
   body {
+    font-family: var(--font-sans), system-ui, -apple-system, Segoe UI, Roboto, Arial, Noto Sans, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     @apply bg-background text-foreground;
   }
 }
-/* Color Theme Swatches in Hex */
-.leonardojansen.com-1-hex { color: #4600E6; }
-.leonardojansen.com-2-hex { color: #DC00E6; }
-.leonardojansen.com-3-hex { color: #9100E6; }
-.leonardojansen.com-4-hex { color: #0005E6; }
-.leonardojansen.com-5-hex { color: #E6006C; }
-.leonardojansen.com-6-hex { color: #A129A6; }
-.leonardojansen.com-7-hex { color: #4F29A6; }
-.leonardojansen.com-8-hex { color: #A22EE6; }
-.leonardojansen.com-9-hex { color: #33262C; }
-.leonardojansen.com-10-hex { color: #262733; }
-.leonardojansen.com-11-hex { color: #322633; }
-.leonardojansen.com-12-hex { color: #2A2633; }
-.leonardojansen.com-13-hex { color: #C48AE6; }
-.leonardojansen.com-14-hex { color: #66334B; }
-.leonardojansen.com-15-hex { color: #333466; }
-.leonardojansen.com-16-hex { color: #643366; }
-.leonardojansen.com-17-hex { color: #433366; }
-.leonardojansen.com-18-hex { color: #B35CE6; }
-.leonardojansen.com-19-hex { color: #A62964; }
-.leonardojansen.com-20-hex { color: #292CA6; }
 
-/* Color Theme Swatches in RGBA */
-.leonardojansen.com-1-rgba { color: rgba(70, 0, 230, 1); }
-.leonardojansen.com-2-rgba { color: rgba(220, 0, 230, 1); }
-.leonardojansen.com-3-rgba { color: rgba(145, 0, 230, 1); }
-.leonardojansen.com-4-rgba { color: rgba(0, 5, 230, 1); }
-.leonardojansen.com-5-rgba { color: rgba(230, 0, 108, 1); }
-.leonardojansen.com-6-rgba { color: rgba(161, 41, 166, 1); }
-.leonardojansen.com-7-rgba { color: rgba(79, 41, 166, 1); }
-.leonardojansen.com-8-rgba { color: rgba(162, 46, 230, 1); }
-.leonardojansen.com-9-rgba { color: rgba(51, 38, 44, 1); }
-.leonardojansen.com-10-rgba { color: rgba(38, 39, 51, 1); }
-.leonardojansen.com-11-rgba { color: rgba(50, 38, 51, 1); }
-.leonardojansen.com-12-rgba { color: rgba(42, 38, 51, 1); }
-.leonardojansen.com-13-rgba { color: rgba(196, 138, 230, 1); }
-.leonardojansen.com-14-rgba { color: rgba(102, 51, 75, 1); }
-.leonardojansen.com-15-rgba { color: rgba(51, 52, 102, 1); }
-.leonardojansen.com-16-rgba { color: rgba(100, 51, 102, 1); }
-.leonardojansen.com-17-rgba { color: rgba(67, 51, 102, 1); }
-.leonardojansen.com-18-rgba { color: rgba(179, 92, 230, 1); }
-.leonardojansen.com-19-rgba { color: rgba(166, 41, 100, 1); }
-.leonardojansen.com-20-rgba { color: rgba(41, 44, 166, 1); }
+/* Headings use Poppins */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-title), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+}
 
-/* Color Theme Swatches in HSLA */
-.leonardojansen.com-1-hsla { color: hsla(258, 100, 45, 1); }
-.leonardojansen.com-2-hsla { color: hsla(297, 100, 45, 1); }
-.leonardojansen.com-3-hsla { color: hsla(277, 100, 45, 1); }
-.leonardojansen.com-4-hsla { color: hsla(238, 100, 45, 1); }
-.leonardojansen.com-5-hsla { color: hsla(331, 100, 45, 1); }
-.leonardojansen.com-6-hsla { color: hsla(297, 60, 40, 1); }
-.leonardojansen.com-7-hsla { color: hsla(258, 60, 40, 1); }
-.leonardojansen.com-8-hsla { color: hsla(277, 78, 54, 1); }
-.leonardojansen.com-9-hsla { color: hsla(332, 14, 17, 1); }
-.leonardojansen.com-10-hsla { color: hsla(235, 14, 17, 1); }
-.leonardojansen.com-11-hsla { color: hsla(295, 14, 17, 1); }
-.leonardojansen.com-12-hsla { color: hsla(258, 14, 17, 1); }
-.leonardojansen.com-13-hsla { color: hsla(277, 64, 72, 1); }
-.leonardojansen.com-14-hsla { color: hsla(331, 33, 30, 1); }
-.leonardojansen.com-15-hsla { color: hsla(238, 33, 30, 1); }
-.leonardojansen.com-16-hsla { color: hsla(297, 33, 30, 1); }
-.leonardojansen.com-17-hsla { color: hsla(258, 33, 30, 1); }
-.leonardojansen.com-18-hsla { color: hsla(277, 73, 63, 1); }
-.leonardojansen.com-19-hsla { color: hsla(331, 60, 40, 1); }
-.leonardojansen.com-20-hsla { color: hsla(238, 60, 40, 1); }
+/* Optional helpers */
+.font-title { font-family: var(--font-title), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial; }
+.font-body { font-family: var(--font-sans), system-ui, -apple-system, Segoe UI, Roboto, Arial, Noto Sans; }
+
+

@@ -15,7 +15,7 @@ export default function HeroCamera({cameraRef}) {
         const z = radius * Math.sin(speed * elapsedTime);
         if (cameraRef.current) {
             cameraRef.current.position.set(x, 0, z);
-            cameraRef.current.lookAt(0, 0, 0); // Olha para o centro da cena
+            cameraRef.current.lookAt(0, 1, 0); // Olha para o centro da cena
         }
     });
 
@@ -23,9 +23,6 @@ export default function HeroCamera({cameraRef}) {
         <>
             <PerspectiveCamera ref={cameraRef} makeDefault position={[0, 0, 1]} fov={75} />
         </>
-
-
-
-
     );
+
 }

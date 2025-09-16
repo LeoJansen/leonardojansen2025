@@ -4,7 +4,7 @@ import { Canvas } from '@react-three/fiber'
 
 import { Button } from '../../components/ui/button';
 import { CanvasComponent } from './comp/CanvasComponent';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Image from 'next/image';
 import {
   Tooltip,
@@ -14,6 +14,9 @@ import {
 
 export default function Hero() {
   const [spotsOn, setSpotsOn] = useState(false)
+  // Avoid SSR/client hydration mismatch for Radix Tooltip by rendering it only on the client
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
 
   return (
     <section id="home" className='relative w-screen h-screen overflow-hidden'>
@@ -23,29 +26,32 @@ export default function Hero() {
           className="!w-full !h-full"
           gl={{ alpha: false, physicallyCorrectLights: true }}
           dpr={[1, 1.5]}
-          camera={{ position: [0, 3, 13], fov: 15 }}
-         
+          camera={{ position: [0, 3, 14], fov: 15 }}
+
         >
           <CanvasComponent spotsOn={spotsOn} />
         </Canvas>
       </div>
-      <div  onClick={() => setSpotsOn((v) => !v)}>
-         <Tooltip defaultOpen={true}>
-      <TooltipTrigger asChild>
-          <Image
-        src="/assets/switch.svg"
-        alt="Switch"
-        width={40}
-        height={40}
-        className="absolute bottom-50 right-20 w-10 h-10 z-10 cursor-pointer select-none"
-       
-      />
-      </TooltipTrigger>
-      <TooltipContent>
-        <p>Turn on the lights</p>
-      </TooltipContent>
-    </Tooltip>
-    
+      <div onClick={() => setSpotsOn((v) => !v)}>
+        {mounted && (
+          <Tooltip defaultOpen={true}>
+            <TooltipTrigger asChild>
+              <div className='bg-[#7F0098] absolute flex justify-center items-center bottom-50 right-20 w-10 h-10 z-10 cursor-pointer select-none rounded-full'>
+                <Image
+                  src="/assets/switch.svg"
+                  alt="Switch"
+                  width={40}
+                  height={40}
+                  className="bottom-50 right-20 w-10 h-9 z-9 cursor-pointer select-none"
+                />
+              </div>
+
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Turn on the lights</p>
+            </TooltipContent>
+          </Tooltip>
+        )}
       </div>
       <div className="absolute bottom-7 left-0 right-0 w-full z-10 c-space">
         {/* <a href="#about" className="w-fit">
