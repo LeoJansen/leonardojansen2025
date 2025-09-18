@@ -48,6 +48,16 @@ export default function Hero() {
 
   return (
     <section id="home" className='relative w-screen h-screen overflow-hidden'>
+      <div className='absolute top-10 left-10 right-0 w-full z-10 c-space text-center'>
+<Image
+          src="/assets/leoLogoIcon.svg"
+          alt="Hero Text"
+          width={437}
+          height={395}
+          className="w-10 h-10 "
+        />
+        
+      </div>
       <div className="absolute inset-0">
         <Canvas
           shadows
