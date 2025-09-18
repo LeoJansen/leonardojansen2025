@@ -2,7 +2,7 @@ import Hero from '../sections/Hero/Hero'
 import About from '../sections/About'
 import Footer from '../sections/Footer'
 import Topbar from '../sections/Topbar'
-import Clients from '../sections/Clients'
+import Clients from '../sections/Clients/Clients'
 import Contact from '../sections/Contact'
 import Services from '../sections/Services'
 
