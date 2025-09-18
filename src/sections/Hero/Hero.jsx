@@ -54,7 +54,7 @@ export default function Hero() {
           alt="Hero Text"
           width={437}
           height={395}
-          className="w-10 h-10 "
+          className="w-10 h-10 filter brightness-[0.678]"
         />
         
       </div>
