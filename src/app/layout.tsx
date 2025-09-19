@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Open_Sans, Poppins, Geist_Mono } from "next/font/google";
+import { Open_Sans, Poppins } from "next/font/google";
 import "./globals.css";
 // Using the automatic React JSX runtime – no need to import React.
 
@@ -17,10 +17,7 @@ const poppins = Poppins({
   display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+
 
 export const metadata: Metadata = {
   title: "Leo Jansen | Portfólio de Projetos Web",
@@ -34,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${openSans.variable} ${poppins.variable} ${geistMono.variable} antialiased`}
+        className={`${openSans.variable} ${poppins.variable}  antialiased`}
       >
         {children}
       </body>
