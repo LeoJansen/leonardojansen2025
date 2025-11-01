@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "title": "Leo Jansen | Portfólio de Projetos Web",
+    "description": "Explore o portfólio de projetos de Leonardo Jansen. Uma coleção de aplicações web modernas, construídas com as tecnologias mais recentes do mercado, como Next.js."
+  },
+  "navigation": {
+    "items": [
+      { "label": "Início", "href": "#home" },
+      { "label": "Serviços", "href": "#services" },
+      { "label": "Sobre", "href": "#about" },
+      { "label": "Projetos", "href": "#projects" },
+      { "label": "Habilidades", "href": "#skills" },
+      { "label": "Depoimentos", "href": "#testimonials" },
+      { "label": "Contato", "href": "#contact" }
+    ],
+    "localeSwitcher": {
+      "ariaLabel": "Trocar idioma para",
+      "labels": {
+        "en": "English",
+        "pt": "Português"
+      }
+    }
+  },
+  "hero": {
+    "logoAlt": "Logotipo pessoal de Leo Jansen",
+    "switchTooltip": "Acender as luzes",
+    "switchAriaLabel": "Alternar a iluminação da cena"
+  },
+  "about": {
+    "quoteHtml": "\u201cProgramar não é apenas uma vocação para mim. É o que eu <strong>nasci para fazer</strong>. Sempre que me envolvo em um projeto e começo a codar, sinto que meu propósito é estar em contato com algoritmos.\u201d",
+    "imageAlt": "Retrato de Leonardo Jansen"
+  },
+  "services": {
+    "items": [
+      {
+        "title": "Desenvolvimento de Aplicações Web",
+        "description": "Construo aplicações robustas e escaláveis do zero, usando Next.js e React para entregar soluções de alto desempenho.",
+        "imageSrc": "/assets/services1.png",
+        "imageAlt": "Layout moderno de aplicação web"
+      },
+      {
+        "title": "Consultoria Técnica",
+        "description": "Ofereço consultoria técnica para ajudar a otimizar, refatorar ou planejar seu projeto. Auxilio na escolha das melhores soluções e na implementação de práticas eficientes.",
+        "imageSrc": "/assets/services2.png",
+        "imageAlt": "Profissionais colaborando em uma sessão de consultoria"
+      },
+      {
+        "title": "Otimização de Performance e SEO",
+        "description": "Transformo a experiência do usuário garantindo um site rápido, com excelente desempenho em Core Web Vitals e melhor ranking em mecanismos de busca.",
+        "imageSrc": "/assets/services3.png",
+        "imageAlt": "Ilustração de painel com métricas de performance"
+      },
+      {
+        "title": "Integração com CMS",
+        "description": "Integro sistemas de gestão de conteúdo como Contentful, Sanity ou Strapi, permitindo que você administre seu site com facilidade.",
+        "imageSrc": "/assets/services4.png",
+        "imageAlt": "Interface de sistema de gestão de conteúdo"
+      }
+    ]
+  },
+  "clients": {
+    "heading": "Projetos e Colaborações",
+    "intro": "Minha paixão por resolver problemas me levou a colaborar em projetos impactantes e criar soluções inovadoras.",
+    "viewProject": "Ver projeto \u2192",
+    "sourceCode": "Código-fonte \u2192",
+    "projects": [
+      {
+        "id": 1,
+        "title": "Nome do Projeto",
+        "description": "Uma breve descrição sobre o objetivo do projeto e a tecnologia principal.",
+        "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "...", "..."],
+        "image": "/assets/leoLogoIcon.svg",
+        "link": "https://www.link-para-o-projeto.com",
+        "github": "https://github.com/seu-usuario/nome-do-repo"
+      },
+      {
+        "id": 2,
+        "title": "Outro Projeto",
+        "description": "Descrição de uma colaboração open source, projeto pessoal ou trabalho freelance.",
+        "technologies": ["React", "Node.js", "MongoDB"],
+        "image": "/assets/leoLogoIcon.svg",
+        "link": "https://www.link-para-o-projeto.com",
+        "github": null
+      }
+    ]
+  },
+  "contact": {
+    "heading": "Contato",
+    "description": "Tem um projeto em mente ou quer apenas dizer olá? Entre em contato e vamos criar algo incrível juntos.",
+    "cta": "Vamos conversar",
+    "link": "mailto:contato@example.com"
+  },
+  "footer": {
+    "text": "\u00a9 {{year}} Leonardo Jansen. Todos os direitos reservados."
+  }
+}

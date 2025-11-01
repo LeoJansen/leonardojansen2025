@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Open_Sans, Poppins } from "next/font/google";
-import "./globals.css";
+import type { ReactNode } from "react";
+import "@/app/globals.css";
+import { defaultLocale, isLocale } from "@/i18n/config";
 // Using the automatic React JSX runtime – no need to import React.
 
 const openSans = Open_Sans({
@@ -20,19 +22,26 @@ const poppins = Poppins({
 
 
 export const metadata: Metadata = {
-  title: "Leo Jansen | Portfólio de Projetos Web",
-  description: "Explore o portfólio de projetos de Leonardo Jansen. Uma coleção de aplicações web modernas, construídas com as tecnologias mais recentes do mercado, como Next.js.",
+  title: "Leo Jansen",
+  description:
+    "Portfólio digital de Leonardo Jansen com projetos web modernos construídos em Next.js.",
 };
-export default function RootLayout({
+
+type RootLayoutProps = {
+  children: ReactNode;
+  params: Promise<Record<string, string | undefined>>;
+};
+
+export default async function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+  params,
+}: Readonly<RootLayoutProps>) {
+  const resolvedParams = await params;
+  const locale = isLocale(resolvedParams?.locale) ? resolvedParams.locale : defaultLocale;
+
   return (
-    <html lang="en">
-      <body
-        className={`${openSans.variable} ${poppins.variable}  antialiased`}
-      >
+    <html lang={locale} suppressHydrationWarning>
+      <body className={`${openSans.variable} ${poppins.variable} antialiased`}>
         {children}
       </body>
     </html>
