@@ -27,7 +27,7 @@
     "switchAriaLabel": "Toggle the scene lighting"
   },
   "about": {
-    "quoteHtml": "\u201cProgramming is not just a vocation for me. It's what I was <strong>born to do</strong>. Every time I get involved in a project and start coding, I feel that my purpose in life is to be in contact with algorithms.\u201d",
+    "quoteHtml": "\u201cProgramming is not just a vocation for me. It's what I was <strong class=\"text-[#87659e]\">born to do</strong>. Every time I get involved in a project and start coding, I feel that my purpose in life is to be in contact with algorithms.\u201d",
     "imageAlt": "Portrait of Leonardo Jansen"
   },
   "services": {

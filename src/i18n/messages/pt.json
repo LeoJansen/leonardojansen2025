@@ -27,7 +27,7 @@
     "switchAriaLabel": "Alternar a iluminação da cena"
   },
   "about": {
-    "quoteHtml": "\u201cProgramar não é apenas uma vocação para mim. É o que eu <strong>nasci para fazer</strong>. Sempre que me envolvo em um projeto e começo a codar, sinto que meu propósito é estar em contato com algoritmos.\u201d",
+  "quoteHtml": "\u201cProgramar não é apenas uma vocação para mim. É o que eu <strong class=\"text-[#87659e]\">nasci para fazer</strong>. Sempre que me envolvo em um projeto e começo a codar, sinto que meu propósito é estar em contato com algoritmos.\u201d",
     "imageAlt": "Retrato de Leonardo Jansen"
   },
   "services": {
