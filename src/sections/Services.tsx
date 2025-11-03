@@ -13,14 +13,24 @@ type ServicesProps = {
 
 const Services = ({ items }: ServicesProps) => {
   return (
-    <section id="services" className="flex h-full w-full">
-      <div className="mt-20 grid h-full w-full grid-cols-2 text-[#979797]">
+    <section id="services" className="relative flex h-full w-full">
+      <Image
+        src="/assets/services/services-desktop-bg.png"
+        alt="Services Banner"
+        fill
+        sizes="100vw"
+        className="w-full object-cover "
+        quality={100}
+      />
+      <div className="absolute w-full h-full inset-0 bg-gradient-to-b from-[#000000] via-[#00000001] to-[rgba(0,0,0,0)] "/>
+
+      <div className="mt-20 grid h-full w-full grid-cols-2 text-[#979797]  z-10 gap-8 ">
         {items.map((service) => (
           <div
             key={service.title}
-            className="flex flex-col items-center justify-center p-10"
+            className="flex flex-col items-center justify-center w-2/3 border-2 border-[#ac7bb6]"
           >
-            <div className="mb-4 flex rounded-lg border-4 border-[#ac7bb6]">
+            <div className="mb-4 flex rounded-lg">
               <Image
                 src={service.imageSrc}
                 alt={service.imageAlt}

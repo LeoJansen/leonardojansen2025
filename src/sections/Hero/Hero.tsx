@@ -24,7 +24,7 @@ type HeroProps = {
 const Hero = ({ dictionary }: HeroProps) => {
   const [spotsOn, setSpotsOn] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const switchRef = useRef<HTMLDivElement | null>(null);
+  const switchRef = useRef<HTMLLabelElement | null>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -68,6 +68,7 @@ const Hero = ({ dictionary }: HeroProps) => {
           className="h-10 w-10 filter brightness-[0.678]"
           priority
         />
+        
       </div>
       <div className="absolute inset-0">
         <Canvas
@@ -84,14 +85,18 @@ const Hero = ({ dictionary }: HeroProps) => {
         {mounted && (
           <Tooltip defaultOpen>
             <TooltipTrigger asChild>
-              <div
+              <label
                 ref={switchRef}
-                role="switch"
-                aria-checked={spotsOn ? "true" : "false"}
-                aria-label={dictionary.switchAriaLabel}
-                onClick={() => setSpotsOn((value) => !value)}
                 className="bg-[#7F0098] absolute bottom-50 right-20 z-10 flex h-10 w-10 cursor-pointer select-none items-center justify-center rounded-full"
               >
+                <span className="sr-only">{dictionary.switchAriaLabel}</span>
+                <input
+                  type="checkbox"
+                  aria-label={dictionary.switchAriaLabel}
+                  checked={spotsOn}
+                  onChange={(event) => setSpotsOn(event.target.checked)}
+                  className="sr-only"
+                />
                 <Image
                   src="/assets/switch.svg"
                   alt={dictionary.switchAriaLabel}
@@ -99,7 +104,7 @@ const Hero = ({ dictionary }: HeroProps) => {
                   height={40}
                   className="bottom-50 right-20 z-9 h-9 w-10 select-none"
                 />
-              </div>
+              </label>
             </TooltipTrigger>
             <TooltipContent>
               <p>{dictionary.switchTooltip}</p>
