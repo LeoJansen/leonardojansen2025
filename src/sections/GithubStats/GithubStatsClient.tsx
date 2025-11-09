@@ -5,7 +5,6 @@ import gsap from 'gsap';
 import type { Locale } from '@/i18n/config';
 import type { GithubStatsData, GithubStatsDictionary } from './GithubStats';
 import ParticleField from '@/components/ParticleField';
-import SkySmoke from '@/components/skySmoke';
 
 interface GithubStatsClientProps {
   stats: GithubStatsData;
@@ -39,7 +38,6 @@ const GithubStatsClient = ({ stats, dictionary, locale }: GithubStatsClientProps
       { id: 'commits', label: dictionary.commits, value: stats.totalCommits },
       { id: 'years', label: dictionary.yearsOnGithub, value: stats.yearsOnGithub },
       { id: 'daysGithub', label: dictionary.daysOnGithub, value: stats.daysOnGithub },
-      { id: 'codingDays', label: dictionary.codingDays, value: stats.codingDays },
       { id: 'loc', label: dictionary.linesOfCode, value: stats.linesOfCode },
       { id: 'files', label: dictionary.filesCreated, value: stats.filesCreated },
       { id: 'apps', label: dictionary.appsCreated, value: stats.appsCreated },
@@ -115,7 +113,7 @@ const GithubStatsClient = ({ stats, dictionary, locale }: GithubStatsClientProps
       id="github-stats"
       className="relative py-24 "
     >
-      <SkySmoke className="opacity-90 z-30" />
+     
      
       <ParticleField showStarfield={false}  particleClassName="h-[4px] w-[4px] bg-[#f3e6ff]" />
       <div

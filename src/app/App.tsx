@@ -8,6 +8,7 @@ import Footer from "@/sections/Footer";
 import GithubStats from "@/sections/GithubStats/GithubStats";
 import type { Dictionary } from "@/i18n/getDictionary";
 import type { Locale } from "@/i18n/config";
+import SkySmoke from "@/components/skySmoke";
 
 type AppProps = {
   locale: Locale;
@@ -27,7 +28,7 @@ const App = ({ locale, dictionary }: AppProps) => {
   } = dictionary;
 
   return (
-    <div className="relative bg-[#000000]">
+    <div className="relative overflow-hidden bg-[#000000]">
       <Topbar
         items={navigation.items}
         currentLocale={locale}
@@ -35,21 +36,25 @@ const App = ({ locale, dictionary }: AppProps) => {
         ariaLabel={navigation.localeSwitcher.ariaLabel}
       />
       <Hero dictionary={hero} />
-       
-      <Services items={services.items} />
-       
-  <GithubStats dictionary={githubStats} locale={locale} />
-      <About dictionary={about} />
-      <Clients
-        heading={clients.heading}
-        intro={clients.intro}
-        viewProjectLabel={clients.viewProject}
-        sourceCodeLabel={clients.sourceCode}
-        projects={clients.projects}
-      />
-     
-      <Contact dictionary={contact} />
-      <Footer dictionary={footer} />
+
+      <div className="relative">
+        <SkySmoke className="pointer-events-none absolute inset-0 z-0 opacity-80" />
+
+        <div className="relative ">
+          <Services items={services.items} />
+          <GithubStats dictionary={githubStats} locale={locale} />
+          <About dictionary={about} />
+          <Clients
+            heading={clients.heading}
+            intro={clients.intro}
+            viewProjectLabel={clients.viewProject}
+            sourceCodeLabel={clients.sourceCode}
+            projects={clients.projects}
+          />
+          <Contact dictionary={contact} />
+          <Footer dictionary={footer} />
+        </div>
+      </div>
     </div>
   );
 };

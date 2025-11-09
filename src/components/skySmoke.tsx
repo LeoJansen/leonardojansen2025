@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef } from "react";
 import { gsap } from "gsap";
 import { cn } from "@/lib/utils";
 
-const BASE_CONTAINER_CLASS = "pointer-events-none absolute right-1/2 top-0  transform-gpu";
+const BASE_CONTAINER_CLASS = "pointer-events-none absolute inset-0 overflow-visible transform-gpu";
 const BASE_LAYER_CLASS =
 	"absolute aspect-square rounded-full mix-blend-screen blur-[120px] saturate-[1.3]";
 
@@ -60,16 +60,17 @@ const SkySmoke = ({ className, layerCount = 5 }: SkySmokeProps) => {
 		layerRefs.current.length = layerCount;
 
 		const ctx = gsap.context(() => {
-			gsap.set(container, { transformOrigin: "50% 50%" });
+			gsap.set(container, { transformOrigin: "50% 50%", yPercent: -10 });
 
-			gsap.timeline({ repeat: -1, yoyo: true, defaults: { ease: "sine.inOut" } })
-				.to(container, { xPercent: 4, yPercent: -3, duration: 18 })
-				.to(container, { xPercent: -5, yPercent: 4, duration: 21 })
-				.to(container, { xPercent: 2, yPercent: -6, duration: 16 });
+			gsap.timeline({ repeat: -1, defaults: { ease: "sine.inOut", yoyo: true } })
+				.to(container, { yPercent: 10, xPercent: 54, duration: 6 })
+				.to(container, { yPercent: 30, xPercent: -53, duration: 8 })
+				.to(container, { yPercent: 50, xPercent: 52, duration: 4 })
+				.to(container, { yPercent: 85, xPercent: -80, duration: 8 });
 
 			gsap.to(container, {
-				rotation: 2.2,
-				duration: 26,
+				rotation: 1.6,
+				duration: 42,
 				ease: "sine.inOut",
 				repeat: -1,
 				yoyo: true,
