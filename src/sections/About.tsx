@@ -1,3 +1,4 @@
+import ParticleField from "@/components/ParticleField";
 import Image from "next/image";
 
 type AboutDictionary = {
@@ -11,7 +12,8 @@ type AboutProps = {
 
 const About = ({ dictionary }: AboutProps) => {
   return (
-    <section id="about" className="flex h-full w-full">
+    <section id="about" className="relative flex h-full w-full ">
+        <ParticleField />
       <div className="flex h-full w-full flex-col-reverse items-center justify-center gap-10 md:flex-row">
         <div className="flex w-full flex-col p-15 md:w-1/2">
           <h3
@@ -23,7 +25,7 @@ const About = ({ dictionary }: AboutProps) => {
           <div className="relative w-full rounded-l-[350px] bg-gradient-to-l from-[hsl(0,0%,5%)] via-[hsl(0,0%,9%)] to-[hsl(0,0%,5%)] p-[7px] pr-0">
             <div className="h-full w-full overflow-hidden rounded-l-[340px] bg-[#050505] shadow-lg">
               <Image
-                src="/assets/leoPic.png"
+                src="/assets/leo-picture.png"
                 alt={dictionary.imageAlt}
                 width={928}
                 height={1120}

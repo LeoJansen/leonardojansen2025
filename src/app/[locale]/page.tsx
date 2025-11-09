@@ -7,12 +7,14 @@ interface LocalePageProps {
   params: { locale: string };
 }
 
-export default function LocalePage({ params }: LocalePageProps) {
-  if (!isLocale(params.locale)) {
+export default async function LocalePage({ params }: LocalePageProps) {
+  const resolvedParams = await params;
+
+  if (!isLocale(resolvedParams.locale)) {
     notFound();
   }
 
-  const dictionary = getDictionary(params.locale);
+  const dictionary = await getDictionary(resolvedParams.locale);
 
-  return <App locale={params.locale} dictionary={dictionary} />;
+  return <App locale={resolvedParams.locale} dictionary={dictionary} />;
 }

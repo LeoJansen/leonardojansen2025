@@ -1,3 +1,5 @@
+import ParticleField from "@/components/ParticleField";
+
 type ContactDictionary = {
   heading: string;
   description: string;
@@ -11,7 +13,8 @@ type ContactProps = {
 
 const Contact = ({ dictionary }: ContactProps) => {
   return (
-    <section id="contact" className="flex h-screen w-full items-center justify-center bg-[#000000] px-6 text-center text-gray-100">
+    <section id="contact" className="relative flex h-screen w-full items-center justify-center px-6 text-center text-gray-100">
+        <ParticleField />
       <div className="max-w-3xl space-y-6">
         <h2 className="text-4xl font-semibold">{dictionary.heading}</h2>
         <p className="text-lg text-gray-400">{dictionary.description}</p>

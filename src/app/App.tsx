@@ -27,7 +27,7 @@ const App = ({ locale, dictionary }: AppProps) => {
   } = dictionary;
 
   return (
-    <div className="bg-[#070707]">
+    <div className="relative bg-[#000000]">
       <Topbar
         items={navigation.items}
         currentLocale={locale}
@@ -35,8 +35,10 @@ const App = ({ locale, dictionary }: AppProps) => {
         ariaLabel={navigation.localeSwitcher.ariaLabel}
       />
       <Hero dictionary={hero} />
-       <GithubStats dictionary={githubStats} />
+       
       <Services items={services.items} />
+       
+  <GithubStats dictionary={githubStats} locale={locale} />
       <About dictionary={about} />
       <Clients
         heading={clients.heading}

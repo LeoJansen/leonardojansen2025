@@ -1,3 +1,5 @@
+import ParticleField from "@/components/ParticleField";
+
 type FooterDictionary = {
   text: string;
 };
@@ -11,7 +13,8 @@ const Footer = ({ dictionary }: FooterProps) => {
   const text = dictionary.text.replace("{{year}}", year);
 
   return (
-    <footer className="flex h-24 w-full items-center justify-center bg-[#000000] text-sm text-gray-500">
+    <footer className="flex h-24 w-full items-center justify-center  text-sm text-gray-500">
+        <ParticleField />
       {text}
     </footer>
   );

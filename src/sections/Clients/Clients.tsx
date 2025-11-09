@@ -1,3 +1,4 @@
+import ParticleField from "@/components/ParticleField";
 import Image from "next/image";
 
 type Project = {
@@ -26,8 +27,9 @@ const Clients = ({
   projects,
 }: ClientsProps) => {
   return (
-    <section id="projects" className="py-20">
-      <div className="container mx-auto px-4">
+    <section id="projects" className="relative py-20">
+        <ParticleField />
+      <div className="relative container mx-auto px-4 z-90">
         <h2 className="mb-4 text-center text-4xl font-bold">{heading}</h2>
         <p className="mb-12 text-center text-xl text-gray-600">{intro}</p>
 

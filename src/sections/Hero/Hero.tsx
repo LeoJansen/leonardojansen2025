@@ -58,7 +58,7 @@ const Hero = ({ dictionary }: HeroProps) => {
   }, [mounted]);
 
   return (
-    <section id="home" className="relative h-screen w-screen overflow-hidden">
+    <section id="home" className="relative h-screen w-screen overflow-hidden z-40">
       <div className="c-space absolute left-10 right-0 top-10 z-10 w-full text-center">
         <Image
           src="/assets/leoLogoIcon.svg"

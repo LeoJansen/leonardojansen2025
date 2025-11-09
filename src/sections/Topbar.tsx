@@ -59,7 +59,7 @@ const Topbar = ({ items, currentLocale, localeLabels, ariaLabel }: TopbarProps) 
   return (
     <nav
       ref={containerRef}
-      className="absolute flex h-16 w-full items-center justify-center z-20"
+      className="absolute flex h-16 w-full items-center justify-center z-50"
     >
       <div className="fixed flex h-10 items-center gap-8 rounded-[20px] bg-[#0000002a] px-8 hover:bg-[#080808] hover:backdrop-blur-[1px] transition-all">
         {items.map((item) => (

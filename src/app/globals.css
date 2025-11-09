@@ -100,4 +100,16 @@ h1, h2, h3, h4, h5, h6 {
 .font-title { font-family: var(--font-title), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial; }
 .font-body { font-family: var(--font-sans), system-ui, -apple-system, Segoe UI, Roboto, Arial, Noto Sans; }
 
+  @layer components {
+    .star-field-pattern {
+      background-image:
+        radial-gradient(1px 1px at 10px 20px, rgba(168, 111, 255, 0.55), transparent 55%),
+        radial-gradient(1px 1px at 130px 80px, rgba(233, 210, 255, 0.6), transparent 60%),
+        radial-gradient(2px 2px at 90px 120px, rgba(194, 146, 255, 0.45), transparent 55%),
+        radial-gradient(1px 1px at 60px 160px, rgba(147, 96, 236, 0.5), transparent 55%);
+      background-size: 220px 220px, 280px 280px, 260px 260px, 240px 240px;
+      background-position: 0 0, 30px 60px, 120px 40px, 60px 140px;
+    }
+  }
+
 
