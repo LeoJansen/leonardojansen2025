@@ -5,6 +5,7 @@ import About from "@/sections/About";
 import Clients from "@/sections/Clients/Clients";
 import Contact from "@/sections/Contact";
 import Footer from "@/sections/Footer";
+import GithubStats from "@/sections/GithubStats/GithubStats";
 import type { Dictionary } from "@/i18n/getDictionary";
 import type { Locale } from "@/i18n/config";
 
@@ -14,7 +15,16 @@ type AppProps = {
 };
 
 const App = ({ locale, dictionary }: AppProps) => {
-  const { navigation, hero, services, about, clients, contact, footer } = dictionary;
+  const {
+    navigation,
+    hero,
+    services,
+    about,
+    clients,
+    githubStats,
+    contact,
+    footer,
+  } = dictionary;
 
   return (
     <div className="bg-[#070707]">
@@ -25,6 +35,7 @@ const App = ({ locale, dictionary }: AppProps) => {
         ariaLabel={navigation.localeSwitcher.ariaLabel}
       />
       <Hero dictionary={hero} />
+       <GithubStats dictionary={githubStats} />
       <Services items={services.items} />
       <About dictionary={about} />
       <Clients
@@ -34,6 +45,7 @@ const App = ({ locale, dictionary }: AppProps) => {
         sourceCodeLabel={clients.sourceCode}
         projects={clients.projects}
       />
+     
       <Contact dictionary={contact} />
       <Footer dictionary={footer} />
     </div>

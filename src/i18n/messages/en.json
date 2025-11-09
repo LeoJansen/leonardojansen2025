@@ -58,6 +58,18 @@
       }
     ]
   },
+  "githubStats": {
+    "title": "GitHub Stats",
+    "repos": "Public Repos",
+    "activity": "Recent Activity",
+    "commits": "Commits (last events)",
+    "yearsOnGithub": "Years on GitHub",
+    "daysOnGithub": "Days on GitHub",
+    "codingDays": "Days coding",
+    "linesOfCode": "Lines of code",
+    "filesCreated": "Files created",
+    "appsCreated": "Apps delivered"
+  },
   "clients": {
     "heading": "Projects & Collaborations",
     "intro": "My passion for solving problems has led me to collaborate on impactful projects and create innovative solutions.",

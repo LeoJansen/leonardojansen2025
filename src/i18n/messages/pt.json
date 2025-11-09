@@ -58,6 +58,18 @@
       }
     ]
   },
+  "githubStats": {
+    "title": "Estatísticas do GitHub",
+    "repos": "Repositórios Públicos",
+    "activity": "Atividade recente",
+    "commits": "Commits (últimos eventos)",
+    "yearsOnGithub": "Anos no GitHub",
+    "daysOnGithub": "Dias no GitHub",
+    "codingDays": "Dias programando",
+    "linesOfCode": "Linhas de código",
+    "filesCreated": "Arquivos criados",
+    "appsCreated": "Apps entregues"
+  },
   "clients": {
     "heading": "Projetos e Colaborações",
     "intro": "Minha paixão por resolver problemas me levou a colaborar em projetos impactantes e criar soluções inovadoras.",
