@@ -1,6 +1,7 @@
 .gradientBorder {
   position: relative;
   border-radius: 1rem;
+  --gradient-angle: 0deg;
 }
 
 .gradientBorder::before {
@@ -9,7 +10,13 @@
   inset: 0;
   padding: 2px;
   border-radius: inherit;
-  background: linear-gradient(135deg, #ac7bb6 0%, #6c55a3 50%, #46d1ff 100%);
+  background: conic-gradient(
+    from var(--gradient-angle),
+    #39006C 0deg,
+    #4A2B66 120deg,
+    #580A9C 240deg,
+    #5B1797 360deg
+  );
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
