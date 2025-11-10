@@ -1,7 +1,30 @@
 .gradientBorder {
-  border: 2px solid transparent;
+  position: relative;
   border-radius: 1rem;
-  border-image-slice: 1;
-  border-image-source: linear-gradient(135deg, #ac7bb6 0%, #6c55a3 50%, #46d1ff 100%);
+}
+
+.gradientBorder::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #ac7bb6 0%, #6c55a3 50%, #46d1ff 100%);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.gradientBorderContent {
+  position: relative;
+  z-index: 1;
+  border-radius: calc(1rem - 2px);
   background-color: transparent;
 }

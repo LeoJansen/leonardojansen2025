@@ -24,19 +24,23 @@ const Services = ({ items }: ServicesProps) => {
         {items.map((service) => (
           <div
             key={service.title}
-            className={`${styles.gradientBorder} flex w-2/3 flex-col items-center justify-center rounded-2xl bg-transparent`}
+            className={`${styles.gradientBorder} w-2/3`}
           >
-            <div className="mb-4 flex">
-              <Image
-                src={service.imageSrc}
-                alt={service.imageAlt}
-                width={500}
-                height={500}
-                className="h-80 w-80 rounded-lg shadow-md"
-              />
+            <div
+              className={`${styles.gradientBorderContent} flex flex-col items-center justify-center bg-transparent p-8`}
+            >
+              <div className="mb-4 flex">
+                <Image
+                  src={service.imageSrc}
+                  alt={service.imageAlt}
+                  width={500}
+                  height={500}
+                  className="h-80 w-80 rounded-lg shadow-md"
+                />
+              </div>
+              <h2 className="mt-4 text-2xl font-semibold">{service.title}</h2>
+              <p className="mt-6 text-lg text-gray-600">{service.description}</p>
             </div>
-            <h2 className="mt-4 text-2xl font-semibold">{service.title}</h2>
-            <p className="mt-6 text-lg text-gray-600">{service.description}</p>
           </div>
         ))}
       </div>
