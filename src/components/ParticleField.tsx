@@ -39,7 +39,7 @@ export type ParticleFieldProps = {
 };
 
 const ParticleField = ({
-  count = 12,
+  count = 14,
   className,
   particleClassName,
   showStarfield = true,
