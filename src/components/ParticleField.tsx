@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useId, useMemo, useRef } from "react";
 import { gsap } from "gsap";
 import { cn } from "@/lib/utils";
 
@@ -8,7 +8,27 @@ const DEFAULT_PARTICLE_CLASS =
   "absolute top-0 left-0 h-[5px] w-[5px] rounded-full bg-[#9500F8] opacity-0 shadow-[0_0_12px_rgba(245,230,255,0.95)] mix-blend-screen";
 
 const DEFAULT_CONTAINER_CLASS = "pointer-events-none absolute inset-0 z-20 overflow-hidden";
-const DEFAULT_STARFIELD_CLASS = "absolute inset-0 -z-10 opacity-70 star-field-pattern";
+const DEFAULT_STARFIELD_CLASS = "absolute inset-0 -z-10 opacity-70 pointer-events-none";
+
+const STARFIELD_COLORS = [
+  "rgba(118 40 235 / 0.55)",
+  "rgba(183 116 247 / 0.6)",
+  "rgba(194, 16, 255, 0.45)",
+  "rgba(247, 96, 236, 0.5)",
+];
+
+const createStarfieldBackground = (layers: number): string => {
+  return Array.from({ length: layers })
+    .map(() => {
+      const radius = (Math.random() * 1.8 + 0.6).toFixed(2);
+      const positionX = Math.random() * 100;
+      const positionY = Math.random() * 100;
+      const color = STARFIELD_COLORS[Math.floor(Math.random() * STARFIELD_COLORS.length)];
+
+      return `radial-gradient(${radius}px ${radius}px at ${positionX}% ${positionY}%, ${color}, transparent 65%)`;
+    })
+    .join(", ");
+};
 
 export type ParticleFieldProps = {
   count?: number;
@@ -28,6 +48,39 @@ const ParticleField = ({
   const containerRef = useRef<HTMLDivElement | null>(null);
   const particleRefs = useRef<Array<HTMLSpanElement | null>>([]);
   const particles = useMemo(() => Array.from({ length: count }), [count]);
+  const reactId = useId();
+  const generatedStarfieldClass = useMemo(
+    () => `generated-starfield-${reactId.replace(/:/g, "-")}`,
+    [reactId]
+  );
+  const starfieldStyleElement = useRef<HTMLStyleElement | null>(null);
+
+  useEffect(() => {
+    if (!showStarfield) {
+      if (starfieldStyleElement.current) {
+        starfieldStyleElement.current.remove();
+        starfieldStyleElement.current = null;
+      }
+      return;
+    }
+
+    const styleEl = starfieldStyleElement.current ?? document.createElement("style");
+    styleEl.dataset.starfieldId = generatedStarfieldClass;
+    styleEl.textContent = `.${generatedStarfieldClass}{background-image:${createStarfieldBackground(Math.max(count * 2, 32))};background-repeat:no-repeat;background-size:100% 100%;}`;
+
+    if (!styleEl.isConnected) {
+      document.head.appendChild(styleEl);
+    }
+
+    starfieldStyleElement.current = styleEl;
+
+    return () => {
+      if (starfieldStyleElement.current) {
+        starfieldStyleElement.current.remove();
+        starfieldStyleElement.current = null;
+      }
+    };
+  }, [showStarfield, count, generatedStarfieldClass]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -36,7 +89,6 @@ const ParticleField = ({
     }
 
     particleRefs.current.length = count;
-
     const ctx = gsap.context(() => {
       const animateParticle = (particle: HTMLSpanElement): void => {
         const rect = container.getBoundingClientRect();
@@ -45,12 +97,12 @@ const ParticleField = ({
 
         if (!width || !height) {
           return;
-        }
+    }
 
-        const startX = gsap.utils.random(0, width);
-        const startY = gsap.utils.random(0, height);
-        const endX = gsap.utils.random(startX - width * 0.4, startX + width * 0.4);
-        const endY = gsap.utils.random(startY - height * 0.5, startY + height * 0.5);
+    const startX = gsap.utils.random(0, width);
+    const startY = gsap.utils.random(0, height);
+    const endX = gsap.utils.clamp(0, width, startX + gsap.utils.random(-width * 0.4, width * 0.4));
+    const endY = gsap.utils.clamp(0, height, startY + gsap.utils.random(-height * 0.5, height * 0.5));
         const peakOpacity = gsap.utils.random(0.75, 1);
         const scale = gsap.utils.random(0.35, 0.75);
         const fadeInDuration = gsap.utils.random(0.6, 1.4);
@@ -99,7 +151,10 @@ const ParticleField = ({
   return (
     <div ref={containerRef} className={cn(DEFAULT_CONTAINER_CLASS, className)}>
       {showStarfield ? (
-        <div aria-hidden className={cn(DEFAULT_STARFIELD_CLASS, starfieldClassName)} />
+        <div
+          aria-hidden
+          className={cn(DEFAULT_STARFIELD_CLASS, generatedStarfieldClass, starfieldClassName)}
+        />
       ) : null}
       {particles.map((_, index) => (
         <span

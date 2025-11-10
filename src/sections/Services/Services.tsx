@@ -1,5 +1,6 @@
 import ParticleField from "@/components/ParticleField";
 import Image from "next/image";
+import styles from "./Services.module.css";
 
 type ServiceItem = {
   title: string;
@@ -14,19 +15,18 @@ type ServicesProps = {
 
 const Services = ({ items }: ServicesProps) => {
   return (
-    <section id="services" className="relative flex h-full w-full ">
-     
-      <div className="absolute w-full h-full inset-0 bg-gradient-to-b from-[#000000] via-[#00000001] to-[rgba(0,0,0,0)] "/>
+    <section id="services" className="relative flex h-full w-full">
+      <div className="absolute inset-0 h-full w-full bg-gradient-to-b from-[#000000] via-[#00000001] to-[rgba(0,0,0,0)]" />
 
       <ParticleField />
 
-      <div className="mt-20 grid h-full w-full grid-cols-2 text-[#979797] z-30 gap-8 ">
+      <div className="mt-20 grid h-full w-full grid-cols-2 justify-items-center gap-8 text-[#979797]">
         {items.map((service) => (
           <div
             key={service.title}
-            className="flex flex-col items-center justify-center w-2/3 border-2 border-[#ac7bb6]"
+            className={`${styles.gradientBorder} flex w-2/3 flex-col items-center justify-center rounded-2xl bg-transparent`}
           >
-            <div className="mb-4 flex rounded-lg">
+            <div className="mb-4 flex">
               <Image
                 src={service.imageSrc}
                 alt={service.imageAlt}

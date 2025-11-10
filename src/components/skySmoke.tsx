@@ -12,31 +12,31 @@ const LAYER_PROFILES = [
 	{
 		sizeClass: "w-[520px]",
 		gradient:
-			"bg-[radial-gradient(circle_at_center,_rgba(190,109,255,0.42)_0%,_rgba(120,60,199,0.2)_40%,_rgba(40,0,88,0)_65%)]",
+			"bg-[radial-gradient(circle_at_center,_rgba(190,109,255,0.42)_0%,_rgba(120,60,199,0.2)_40%,_rgba(40,0,88,0)_45%)]",
 		shadow: "shadow-[0_0_180px_60px_rgba(130,55,200,0.18)]",
 	},
 	{
 		sizeClass: "w-[620px]",
 		gradient:
-			"bg-[radial-gradient(circle_at_center,_rgba(220,185,255,0.42)_0%,_rgba(90,40,160,0.18)_45%,_rgba(20,0,70,0)_68%)]",
+			"bg-[radial-gradient(circle_at_center,_rgba(220,15,255,0.42)_0%,_rgba(90,40,160,0.18)_45%,_rgba(20,0,70,0)_48%)]",
 		shadow: "shadow-[0_0_220px_70px_rgba(180,120,255,0.16)]",
 	},
 	{
 		sizeClass: "w-[540px]",
 		gradient:
-			"bg-[radial-gradient(circle_at_center,_rgba(160,85,255,0.4)_0%,_rgba(73,28,150,0.22)_46%,_rgba(26,0,69,0)_70%)]",
+			"bg-[radial-gradient(circle_at_center,_rgba(160,5,255,0.4)_0%,_rgba(73,28,150,0.22)_46%,_rgba(26,0,69,0)_50%)]",
 		shadow: "shadow-[0_0_200px_60px_rgba(110,40,210,0.2)]",
 	},
 	{
 		sizeClass: "w-[700px]",
 		gradient:
-			"bg-[radial-gradient(circle_at_center,_rgba(205,160,255,0.35)_0%,_rgba(84,32,168,0.16)_45%,_rgba(14,0,48,0)_72%)]",
+			"bg-[radial-gradient(circle_at_center,_rgba(205,60,255,0.35)_0%,_rgba(84,32,168,0.16)_45%,_rgba(14,0,48,0)_52%)]",
 		shadow: "shadow-[0_0_260px_80px_rgba(150,90,240,0.14)]",
 	},
 	{
 		sizeClass: "w-[460px]",
 		gradient:
-			"bg-[radial-gradient(circle_at_center,_rgba(171,104,255,0.48)_0%,_rgba(118,56,215,0.18)_42%,_rgba(61,15,146,0)_66%)]",
+			"bg-[radial-gradient(circle_at_center,_rgba(171,4,255,0.48)_0%,_rgba(118,56,215,0.18)_42%,_rgba(61,15,146,0)_46%)]",
 		shadow: "shadow-[0_0_160px_55px_rgba(130,55,215,0.2)]",
 	},
 ];

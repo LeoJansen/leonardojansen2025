@@ -1,6 +1,6 @@
 import Topbar from "@/sections/Topbar";
 import Hero from "@/sections/Hero/Hero";
-import Services from "@/sections/Services";
+import Services from "@/sections/Services/Services";
 import About from "@/sections/About";
 import Clients from "@/sections/Clients/Clients";
 import Contact from "@/sections/Contact";

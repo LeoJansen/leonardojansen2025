@@ -13,7 +13,7 @@ type AboutProps = {
 const About = ({ dictionary }: AboutProps) => {
   return (
     <section id="about" className="relative flex h-full w-full ">
-        <ParticleField />
+        <ParticleField count={4} />
       <div className="flex h-full w-full flex-col-reverse items-center justify-center gap-10 md:flex-row">
         <div className="flex w-full flex-col p-15 md:w-1/2">
           <h3
