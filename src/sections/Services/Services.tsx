@@ -2,9 +2,8 @@
 
 import ParticleField from "@/components/ParticleField";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import styles from "./Services.module.css";
+
+
 
 type ServiceItem = {
   title: string;
@@ -18,32 +17,8 @@ type ServicesProps = {
 };
 
 const Services = ({ items }: ServicesProps) => {
-  const borderRefs = useRef<Array<HTMLDivElement | null>>([]);
+  
 
-  useEffect(() => {
-    const elements = borderRefs.current.filter(
-      (element): element is HTMLDivElement => element !== null,
-    );
-
-    if (!elements.length) {
-      return;
-    }
-
-    const tweens = elements.map((element, index) => {
-      gsap.set(element, { "--gradient-angle": `${(index * 60) % 360}deg` });
-
-      return gsap.to(element, {
-        duration: 5,
-        repeat: -1,
-        ease: "easeInOut",
-        "--gradient-angle": "+=360deg",
-      } as gsap.TweenVars);
-    });
-
-    return () => {
-      tweens.forEach((tween) => tween?.kill());
-    };
-  }, [items.length]);
 
   return (
     <section id="services" className="relative flex h-full w-full">
@@ -55,13 +30,11 @@ const Services = ({ items }: ServicesProps) => {
         {items.map((service, index) => (
           <div
             key={service.title}
-            ref={(element) => {
-              borderRefs.current[index] = element;
-            }}
-            className={`${styles.gradientBorder} w-2/3`}
+         
+            className="*:"
           >
             <div
-              className={`${styles.gradientBorderContent} flex flex-col items-center justify-center bg-transparent p-16`}
+              className="flex-col items-center justify-center bg-transparent p-16"
             >
               <div className="mb-4 flex">
                 <Image
