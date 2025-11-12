@@ -17,7 +17,7 @@ type ServicesProps = {
 };
 
 const Services = ({ items }: ServicesProps) => {
-  
+
 
 
   return (
@@ -30,7 +30,7 @@ const Services = ({ items }: ServicesProps) => {
         {items.map((service) => (
           <div
             key={service.title}
-            className="relative aspect-[4/3] w-full overflow-hidden rounded-lg    shadow-md"
+            className="relative aspect-[4/3] flex items-end w-full overflow-hidden rounded-lg shadow-md"
           >
             <Image
               src={service.imageSrc}
@@ -39,10 +39,10 @@ const Services = ({ items }: ServicesProps) => {
               sizes="(max-width: 1024px) 100vw, 420px"
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-            <div className="relative z-10 flex h-full w-full flex-col items-center justify-end gap-4 p-12 text-center text-gray-100">
-              <h2 className="text-2xl font-semibold">{service.title}</h2>
-              <p className="text-lg text-gray-200/90">{service.description}</p>
+
+            <div className="relative z-10 flex flex-col items-center justify-end gap-4 px-10 pb-10 text-center text-[hsl(268,100%,78%)] backdrop-blur-sm bg-[rgba(0,0,0,0.4)] ">
+              <h2 className="text-2xl font-semibold text-shadow-2xs text-shadow-[hsl(268,100%,58%)]">{service.title}</h2>
+              <p className="text-lg  text-[hsl(268,94%,87%)] ">{service.description}</p>
             </div>
           </div>
         ))}
