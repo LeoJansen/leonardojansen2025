@@ -3,6 +3,11 @@
     "title": "Leo Jansen | Web Projects Portfolio",
     "description": "Explore the web projects portfolio of Leonardo Jansen. A collection of modern applications built with cutting-edge technologies such as Next.js."
   },
+  "loader": {
+    "greeting": "Welcome aboard",
+    "tagline": "Preparing the experience",
+    "progressLabel": "Loading portfolio"
+  },
   "navigation": {
     "items": [
       { "label": "Home", "href": "#home" },

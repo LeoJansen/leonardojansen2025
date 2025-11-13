@@ -3,6 +3,11 @@
     "title": "Leo Jansen | Portfólio de Projetos Web",
     "description": "Explore o portfólio de projetos de Leonardo Jansen. Uma coleção de aplicações web modernas, construídas com as tecnologias mais recentes do mercado, como Next.js."
   },
+  "loader": {
+    "greeting": "Bem-vindo ao meu universo",
+    "tagline": "Preparando a experiência",
+    "progressLabel": "Carregando portfólio"
+  },
   "navigation": {
     "items": [
       { "label": "Início", "href": "#home" },
