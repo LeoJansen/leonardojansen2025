@@ -40,9 +40,9 @@ const Services = ({ items }: ServicesProps) => {
               className="object-cover"
             />
 
-            <div className="relative z-10 flex flex-col items-center justify-end gap-4 px-10 pb-10 text-center text-[hsl(268,100%,78%)] backdrop-blur-sm bg-[rgba(0,0,0,0.4)] ">
-              <h2 className="text-2xl font-semibold text-shadow-2xs text-shadow-[hsl(268,100%,58%)]">{service.title}</h2>
-              <p className="text-lg  text-[hsl(268,94%,87%)] ">{service.description}</p>
+            <div className="relative z-10 flex flex-col items-center justify-end gap-4 px-10 pb-10 text-center  backdrop-blur-sm bg-[rgba(0,0,0,0.3)] ">
+              <h2 className="text-2xl font-semibold text-shadow-2xs text-[#F5FFE3]">{service.title}</h2>
+              <p className="text-lg  text-[#F5FFE3] ">{service.description}</p>
             </div>
           </div>
         ))}
