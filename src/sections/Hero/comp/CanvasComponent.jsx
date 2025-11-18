@@ -9,19 +9,16 @@ import { Ground } from "./Ground";
 import { VideoText } from "./VideoText";
 import { useMediaQuery } from "react-responsive";
 import { calculateSizes } from "./sizes";
+import { SpotlightText } from "./SpotlightText";
 // Removed CanvasLoader from Suspense fallback to avoid setState during render warnings
 
-
-
-
-
-export const CanvasComponent = ({ spotsOn = true }) => {
+export const CanvasComponent = ({ spotsOn = true, lightMessage }) => {
   const isSmall = useMediaQuery({ maxWidth: 440 });
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
   const isPC = useMediaQuery({ minWidth: 1024, maxWidth: 1440 });
   const isXL = useMediaQuery({ minWidth: 1440 });
-  const { avatar, videoText, chair} = calculateSizes(isSmall, isMobile, isTablet, isPC, isXL);
+  const { avatar, videoText, chair, lightText } = calculateSizes(isSmall, isMobile, isTablet, isPC, isXL);
   const ref = useRef();
   const depthBuffer = useDepthBuffer({ frames: 1 })
 
@@ -69,8 +66,24 @@ export const CanvasComponent = ({ spotsOn = true }) => {
           />
           {/* To enable the video texture, put a compatible video under /public and pass videoSrc (e.g., videoSrc="/intro.mp4") */}
           <VideoText position1={videoText.text1.position} rotation1={videoText.text1.rotation}  scale1={videoText.text1.scale} position2={videoText.text2.position} rotation2={videoText.text2.rotation}  scale2={videoText.text2.scale}
-          fontSize1={videoText.text1.fontSize}  fontSize2={videoText.text2.fontSize} />
-
+          fontSize1={videoText.text1.fontSize}  fontSize2={videoText.text2.fontSize} lightOn={spotsOn} />
+          {lightText && (
+            <SpotlightText
+              active={spotsOn}
+              message={lightMessage}
+              position={lightText.position}
+              rotation={lightText.rotation}
+              fontSize={lightText.fontSize}
+              maxWidth={lightText.maxWidth}
+              lineHeight={lightText.lineHeight}
+              letterSpacing={lightText.letterSpacing}
+              videoSrc={lightText.videoSrc}
+              color={lightText.color}
+              finalScale={lightText.finalScale}
+              anchorX={lightText.anchorX}
+              anchorY={lightText.anchorY}
+            />
+          )}
 
         </group>
         {/* Two interactive SpotLights following the mouse (viewport-scaled) */}

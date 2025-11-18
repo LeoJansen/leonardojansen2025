@@ -15,6 +15,7 @@ type HeroDictionary = {
   logoAlt: string;
   switchTooltip: string;
   switchAriaLabel: string;
+  lightMessage?: string;
 };
 
 type HeroProps = {
@@ -78,7 +79,7 @@ const Hero = ({ dictionary }: HeroProps) => {
           dpr={[1, 1.5]}
           camera={{ position: [0, 3, 14], fov: 15 }}
         >
-          <CanvasComponent spotsOn={spotsOn} />
+          <CanvasComponent spotsOn={spotsOn} lightMessage={dictionary.lightMessage} />
         </Canvas>
       </div>
       <div>
