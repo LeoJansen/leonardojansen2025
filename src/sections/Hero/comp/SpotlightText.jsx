@@ -18,8 +18,8 @@ export function SpotlightText({
   color = "#ffffff",
   transitionSpeed = 4,
   finalScale = 1,
-  anchorX = "left",
-  anchorY = "middle",
+  anchorX,
+  anchorY,
   ...props
 }) {
   const [video] = useState(() => {

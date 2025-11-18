@@ -3,23 +3,31 @@ const createLightText = (textConfig, overrides = {}) => {
     return null;
   }
 
-  const [x = 0, y = 0, z = 0] = textConfig.position;
-  const baseFontSize = textConfig.fontSize ?? 0.6;
-  const baseRotation = textConfig.rotation ?? [0, 0, 0];
+  const position = textConfig.position ?? [0, 0, 0];
+  const rotation = textConfig.rotation ?? [0, 0, 0];
+  const fontSize = textConfig.fontSize ?? 0.6;
+  const { offset = [0, -1.18, -0.01], ...rest } = overrides;
+
+  const baseFontSize = rest.fontSize ?? fontSize;
+  const baseRotation = rest.rotation ?? rotation;
 
   const base = {
-    position: [x, y, z],
+    position: [
+      (position[0] ?? 0) + (offset[0] ?? 0),
+      (position[1] ?? 0) + (offset[1] ?? 0),
+      (position[2] ?? 0) + (offset[2] ?? -0.01),
+    ],
     rotation: baseRotation,
-    fontSize: Math.max(baseFontSize * 0.9, 0.32),
-    maxWidth: Math.max(baseFontSize * 8, 2.4),
-    lineHeight: 1.05,
-    letterSpacing: -0.02,
-    anchorX: "left",
-    anchorY: "middle",
-    finalScale: 1,
+    fontSize: baseFontSize,
+    maxWidth: rest.maxWidth ?? Math.max(baseFontSize * 10, 2.4),
+    lineHeight: rest.lineHeight ?? 1.1,
+    letterSpacing: rest.letterSpacing ?? -0.03,
+    anchorX: rest.anchorX ?? "center",
+    anchorY: rest.anchorY ?? "middle",
+    finalScale: rest.finalScale ?? 1,
   };
 
-  return { ...base, ...overrides };
+  return { ...base, ...rest };
 };
 
 export const calculateSizes = (isSmall, isMobile, isTablet, isPC, isXL) => {
@@ -53,9 +61,7 @@ export const calculateSizes = (isSmall, isMobile, isTablet, isPC, isXL) => {
 
     return {
       ...config,
-      lightText: createLightText(config.videoText.text1, {
-        maxWidth: 2.6,
-      }),
+      lightText: createLightText(config.videoText.text1),
     };
   }
 
@@ -89,9 +95,7 @@ export const calculateSizes = (isSmall, isMobile, isTablet, isPC, isXL) => {
 
     return {
       ...config,
-      lightText: createLightText(config.videoText.text1, {
-        maxWidth: 3.4,
-      }),
+      lightText: createLightText(config.videoText.text1),
     };
   }
 
@@ -124,9 +128,7 @@ export const calculateSizes = (isSmall, isMobile, isTablet, isPC, isXL) => {
 
     return {
       ...config,
-      lightText: createLightText(config.videoText.text1, {
-        maxWidth: 3.6,
-      }),
+      lightText: createLightText(config.videoText.text1),
     };
   }
 
@@ -159,9 +161,7 @@ export const calculateSizes = (isSmall, isMobile, isTablet, isPC, isXL) => {
 
     return {
       ...config,
-      lightText: createLightText(config.videoText.text1, {
-        maxWidth: 3.8,
-      }),
+      lightText: createLightText(config.videoText.text1),
     };
   }
 
@@ -194,9 +194,7 @@ export const calculateSizes = (isSmall, isMobile, isTablet, isPC, isXL) => {
 
     return {
       ...config,
-      lightText: createLightText(config.videoText.text1, {
-        maxWidth: 4.2,
-      }),
+      lightText: createLightText(config.videoText.text1),
     };
   }
 
