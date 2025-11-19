@@ -4,6 +4,9 @@ import { Text } from "@react-three/drei";
 import { useEffect, useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
+import { DissolveMaterial } from "./materials/DissolveMaterial";
+
+const SPOTLIGHT_APPEAR_DELAY_MS = 520;
 
 export function SpotlightText({
   message,
@@ -37,18 +40,17 @@ export function SpotlightText({
 
   const [ready, setReady] = useState(false);
   const textRef = useRef(null);
-  const scaleRef = useRef(active ? 1 : 0);
+  const materialRef = useRef(null);
+  const initialActive = Boolean(active && message);
+  const progressRef = useRef(initialActive ? 1.2 : -0.2);
+  const [videoTexture, setVideoTexture] = useState(null);
+  const [internalActive, setInternalActive] = useState(initialActive);
+  const previousActiveRef = useRef(initialActive);
 
   useEffect(() => {
     if (!textRef.current) return;
-    const safe = Math.max(scaleRef.current, 0.001);
-    textRef.current.visible = scaleRef.current > 0.001;
-    textRef.current.scale.set(
-      finalScale * safe,
-      finalScale * safe,
-      finalScale * safe
-    );
-  }, [finalScale]);
+    textRef.current.visible = progressRef.current > -0.05;
+  }, []);
 
   useEffect(() => {
     if (!video) return;
@@ -77,25 +79,82 @@ export function SpotlightText({
     };
   }, [video]);
 
+  useEffect(() => {
+    if (!ready) {
+      setVideoTexture((current) => {
+        if (current) {
+          current.dispose();
+        }
+        return null;
+      });
+      return;
+    }
+
+    const texture = new THREE.VideoTexture(video);
+    texture.colorSpace = THREE.SRGBColorSpace;
+    setVideoTexture((current) => {
+      if (current) {
+        current.dispose();
+      }
+      return texture;
+    });
+
+    return () => {
+      texture.dispose();
+    };
+  }, [ready, video]);
+
+  useEffect(() => {
+    let timer;
+
+    if (!message) {
+      setInternalActive(false);
+      previousActiveRef.current = false;
+      if (textRef.current) {
+        textRef.current.visible = false;
+      }
+      return () => {};
+    }
+
+    if (active) {
+      if (!previousActiveRef.current) {
+        timer = window.setTimeout(() => setInternalActive(true), SPOTLIGHT_APPEAR_DELAY_MS);
+      } else {
+        setInternalActive(true);
+      }
+    } else {
+      setInternalActive(false);
+    }
+
+    previousActiveRef.current = active;
+
+    return () => {
+      if (timer) {
+        clearTimeout(timer);
+      }
+    };
+  }, [active, message]);
+
   useFrame((_, delta) => {
     if (!textRef.current) return;
 
-    const target = active && message ? 1 : 0;
-    scaleRef.current = THREE.MathUtils.damp(
-      scaleRef.current,
+    const target = internalActive && message ? 1.2 : -0.2;
+    progressRef.current = THREE.MathUtils.damp(
+      progressRef.current,
       target,
       transitionSpeed,
       delta
     );
 
-    const scaleValue = Math.max(scaleRef.current, 0.001);
+    textRef.current.visible = progressRef.current > -0.05;
 
-    textRef.current.visible = scaleRef.current > 0.001;
-    textRef.current.scale.set(
-      finalScale * scaleValue,
-      finalScale * scaleValue,
-      finalScale * scaleValue
-    );
+    if (materialRef.current) {
+      materialRef.current.uniforms.uProgress.value = progressRef.current;
+    }
+
+    if (videoTexture) {
+      videoTexture.needsUpdate = true;
+    }
   });
 
   if (!message) {
@@ -114,20 +173,17 @@ export function SpotlightText({
       rotation={rotation}
       anchorX={anchorX}
       anchorY={anchorY}
+      scale={finalScale}
       {...props}
     >
       {message}
-      {ready && video ? (
-        <meshBasicMaterial toneMapped={false} color={color} fog={false}>
-          <videoTexture
-            attach="map"
-            args={[video]}
-            colorSpace={THREE.SRGBColorSpace}
-          />
-        </meshBasicMaterial>
-      ) : (
-        <meshBasicMaterial toneMapped={false} color={color} fog={false} />
-      )}
+      <DissolveMaterial
+        ref={materialRef}
+        color={color}
+        edgeColor="#d7a5ff"
+        progress={progressRef.current}
+        map={ready ? videoTexture : null}
+      />
     </Text>
   );
 }

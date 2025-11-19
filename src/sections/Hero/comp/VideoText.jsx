@@ -3,6 +3,9 @@ import { Text } from "@react-three/drei";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
+import { DissolveMaterial } from "./materials/DissolveMaterial";
+
+const TEXT_APPEAR_DELAY_MS = 520;
 
 export function VideoText({
   position1,
@@ -33,9 +36,15 @@ export function VideoText({
 
   const [ready, setReady] = useState(false);
   const primaryTextRef = useRef(null);
-  const primaryScaleRef = useRef(lightOn ? 0 : 1);
   const secondaryTextRef = useRef(null);
-  const secondaryScaleRef = useRef(lightOn ? 0 : 1);
+  const primaryMaterialRef = useRef(null);
+  const secondaryMaterialRef = useRef(null);
+  const initialVisible = !lightOn;
+  const primaryProgressRef = useRef(initialVisible ? 1.2 : -0.2);
+  const secondaryProgressRef = useRef(initialVisible ? 1.2 : -0.2);
+  const [videoTexture, setVideoTexture] = useState(null);
+  const [shouldShow, setShouldShow] = useState(initialVisible);
+  const previousLightOnRef = useRef(lightOn);
 
   const baseScale1 = useMemo(() => {
     if (Array.isArray(scale1)) return scale1;
@@ -48,28 +57,6 @@ export function VideoText({
     if (typeof scale2 === "number") return [scale2, scale2, scale2];
     return [1, 1, 1];
   }, [scale2]);
-
-  useEffect(() => {
-    if (!primaryTextRef.current) return;
-    const initial = Math.max(primaryScaleRef.current, 0.001);
-    primaryTextRef.current.visible = primaryScaleRef.current > 0.001;
-    primaryTextRef.current.scale.set(
-      baseScale1[0] * initial,
-      baseScale1[1] * initial,
-      baseScale1[2] * initial
-    );
-  }, [baseScale1]);
-
-  useEffect(() => {
-    if (!secondaryTextRef.current) return;
-    const initial = Math.max(secondaryScaleRef.current, 0.001);
-    secondaryTextRef.current.visible = secondaryScaleRef.current > 0.001;
-    secondaryTextRef.current.scale.set(
-      baseScale2[0] * initial,
-      baseScale2[1] * initial,
-      baseScale2[2] * initial
-    );
-  }, [baseScale2]);
 
   useEffect(() => {
     if (!video) return;
@@ -91,39 +78,88 @@ export function VideoText({
     };
   }, [video]);
 
-  useFrame((_, delta) => {
-    if (primaryTextRef.current) {
-      primaryScaleRef.current = THREE.MathUtils.damp(
-        primaryScaleRef.current,
-        lightOn ? 0 : 1,
-        4,
-        delta
-      );
+  useEffect(() => {
+    if (!ready) {
+      setVideoTexture((current) => {
+        if (current) {
+          current.dispose();
+        }
+        return null;
+      });
+      return;
+    }
 
-      const scaleValue = Math.max(primaryScaleRef.current, 0.001);
-      primaryTextRef.current.visible = primaryScaleRef.current > 0.05;
-      primaryTextRef.current.scale.set(
-        baseScale1[0] * scaleValue,
-        baseScale1[1] * scaleValue,
-        baseScale1[2] * scaleValue
-      );
+    const texture = new THREE.VideoTexture(video);
+    texture.colorSpace = THREE.SRGBColorSpace;
+    setVideoTexture((current) => {
+      if (current) {
+        current.dispose();
+      }
+      return texture;
+    });
+
+    return () => {
+      texture.dispose();
+    };
+  }, [ready, video]);
+
+  useEffect(() => {
+    let timer;
+
+    if (lightOn) {
+      setShouldShow(false);
+    } else {
+      if (previousLightOnRef.current) {
+        timer = window.setTimeout(() => setShouldShow(true), TEXT_APPEAR_DELAY_MS);
+      } else {
+        setShouldShow(true);
+      }
+    }
+
+    previousLightOnRef.current = lightOn;
+
+    return () => {
+      if (timer) {
+        clearTimeout(timer);
+      }
+    };
+  }, [lightOn]);
+
+  useFrame((_, delta) => {
+    const target = shouldShow ? 1.2 : -0.2;
+
+    primaryProgressRef.current = THREE.MathUtils.damp(
+      primaryProgressRef.current,
+      target,
+      4,
+      delta
+    );
+
+    secondaryProgressRef.current = THREE.MathUtils.damp(
+      secondaryProgressRef.current,
+      target,
+      4,
+      delta
+    );
+
+    if (primaryMaterialRef.current) {
+      primaryMaterialRef.current.uniforms.uProgress.value = primaryProgressRef.current;
+    }
+
+    if (secondaryMaterialRef.current) {
+      secondaryMaterialRef.current.uniforms.uProgress.value = secondaryProgressRef.current;
+    }
+
+    if (primaryTextRef.current) {
+      primaryTextRef.current.visible = primaryProgressRef.current > -0.05;
     }
 
     if (secondaryTextRef.current) {
-      secondaryScaleRef.current = THREE.MathUtils.damp(
-        secondaryScaleRef.current,
-        lightOn ? 0 : 1,
-        4,
-        delta
-      );
+      secondaryTextRef.current.visible = secondaryProgressRef.current > -0.05;
+    }
 
-      const secondaryScaleValue = Math.max(secondaryScaleRef.current, 0.001);
-      secondaryTextRef.current.visible = secondaryScaleRef.current > 0.05;
-      secondaryTextRef.current.scale.set(
-        baseScale2[0] * secondaryScaleValue,
-        baseScale2[1] * secondaryScaleValue,
-        baseScale2[2] * secondaryScaleValue
-      );
+    if (videoTexture) {
+      videoTexture.needsUpdate = true;
     }
   });
 
@@ -139,15 +175,16 @@ export function VideoText({
         rotation={rotation1}
         color={"#ffffff"}
         className="bright-text"
+        scale={baseScale1}
       >
         Hello, I&apos;m
-        {ready && video ? (
-          <meshBasicMaterial toneMapped={false} color={"#ffffff"} className="bright-text" fog={false}>
-            <videoTexture attach="map" args={[video]} colorSpace={THREE.SRGBColorSpace} />
-          </meshBasicMaterial>
-        ) : (
-          <meshBasicMaterial toneMapped={false} color={"#ffffff"} className="bright-text" fog={false} />
-        )}
+        <DissolveMaterial
+          ref={primaryMaterialRef}
+          color="#ffffff"
+          edgeColor="#d7a5ff"
+          progress={primaryProgressRef.current}
+          map={ready ? videoTexture : null}
+        />
       </Text>
       <Text
         ref={secondaryTextRef}
@@ -156,15 +193,16 @@ export function VideoText({
         letterSpacing={-0.03}
         {...props}
         position={position2}
+        scale={baseScale2}
       >
         leo
-        {ready && video ? (
-          <meshBasicMaterial toneMapped={false} color={"#ffffff"} fog={false}>
-            <videoTexture attach="map" args={[video]} colorSpace={THREE.SRGBColorSpace} />
-          </meshBasicMaterial>
-        ) : (
-          <meshBasicMaterial toneMapped={false} color={"#ffffff"} fog={false} />
-        )}
+        <DissolveMaterial
+          ref={secondaryMaterialRef}
+          color="#ffffff"
+          edgeColor="#d7a5ff"
+          progress={secondaryProgressRef.current}
+          map={ready ? videoTexture : null}
+        />
       </Text>
     </>
   );

@@ -28,7 +28,7 @@ export const CanvasComponent = ({ spotsOn = true, lightMessage }) => {
         <color attach="background" args={['black']} />
         <fog attach="fog" args={['black', 15, 20]} />
   {/* Low ambient to leave stage in penumbra */}
-  <ambientLight intensity={0.176412} />
+  <ambientLight intensity={0.116412} />
   {/* optional fill; keep low or remove if too bright */}
   <directionalLight position={[-2, 5, -8]} intensity={0.18415}     color="#6C0EBF" />
 
