@@ -1,6 +1,5 @@
 import InitialLoader from "@/components/InitialLoader";
 import SkySmoke from "@/components/skySmoke";
-import Topbar from "@/sections/Topbar";
 import Hero from "@/sections/Hero/Hero";
 import Services from "@/sections/Services/Services";
 import About from "@/sections/About";
@@ -17,17 +16,8 @@ type AppProps = {
 };
 
 const App = ({ locale, dictionary }: AppProps) => {
-  const {
-    navigation,
-    hero,
-    services,
-    about,
-    clients,
-    githubStats,
-    contact,
-    footer,
-    loader,
-  } = dictionary;
+  const { hero, services, about, clients, githubStats, contact, footer, loader } =
+    dictionary;
 
   return (
     <InitialLoader
@@ -39,12 +29,6 @@ const App = ({ locale, dictionary }: AppProps) => {
       }}
     >
       <div className="relative overflow-hidden bg-[#000000]">
-        <Topbar
-          items={navigation.items}
-          currentLocale={locale}
-          localeLabels={navigation.localeSwitcher.labels}
-          ariaLabel={navigation.localeSwitcher.ariaLabel}
-        />
         <Hero dictionary={hero} />
 
         <div className="relative">

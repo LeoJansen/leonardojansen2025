@@ -25,14 +25,14 @@ type HeroProps = {
 const Hero = ({ dictionary }: HeroProps) => {
   const [spotsOn, setSpotsOn] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const switchRef = useRef<HTMLLabelElement | null>(null);
+  const switchBgRef = useRef<HTMLSpanElement | null>(null);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
   useEffect(() => {
-    if (!mounted || !switchRef.current) {
+    if (!mounted || !switchBgRef.current) {
       return;
     }
 
@@ -44,14 +44,17 @@ const Hero = ({ dictionary }: HeroProps) => {
       return;
     }
 
-    const tween = gsap.to(switchRef.current, {
-      autoAlpha: 0.6,
-      opacity: 0.6,
-      duration: 1.7,
-      ease: "power2.inOut",
-      yoyo: true,
-      repeat: -1,
-    });
+    const tween = gsap.fromTo(
+      switchBgRef.current,
+      { opacity: 1 },
+      {
+        opacity: 0.15,
+        duration: 1.7,
+        ease: "power2.inOut",
+        yoyo: true,
+        repeat: -1,
+      }
+    );
 
     return () => {
       tween.kill();
@@ -87,9 +90,13 @@ const Hero = ({ dictionary }: HeroProps) => {
           <Tooltip defaultOpen>
             <TooltipTrigger asChild>
               <label
-                ref={switchRef}
-                className="bg-[#7F0098] absolute bottom-50 right-20 z-10 flex h-10 w-10 cursor-pointer select-none items-center justify-center rounded-full"
+                className="absolute bottom-50 right-20 z-10 flex h-10 w-10 cursor-pointer select-none items-center justify-center rounded-full bg-[#34103b] overflow-hidden"
               >
+                <span
+                  ref={switchBgRef}
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 rounded-full bg-[#b965ff] opacity-100"
+                />
                 <span className="sr-only">{dictionary.switchAriaLabel}</span>
                 <input
                   type="checkbox"
@@ -103,7 +110,7 @@ const Hero = ({ dictionary }: HeroProps) => {
                   alt={dictionary.switchAriaLabel}
                   width={40}
                   height={40}
-                  className="bottom-50 right-20 z-9 h-9 w-10 select-none"
+                  className="relative z-[1] h-9 w-10 select-none"
                 />
               </label>
             </TooltipTrigger>
