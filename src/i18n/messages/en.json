@@ -64,6 +64,136 @@
       }
     ]
   },
+  "solutions": {
+    "metadata": {
+      "title": "Tailored Web Solutions | Leo Jansen",
+      "description": "Explore curated solution packages delivered by Leonardo Jansen: discovery, modernisation, and long-term engineering partnerships."
+    },
+    "hero": {
+      "eyebrow": "Solutions",
+      "title": "Product-first web experiences for teams that move fast.",
+      "subtitle": "From strategy to delivery, I plug into your roadmap to design, build, and ship ambitious user experiences powered by Next.js."
+    },
+    "pillars": [
+      {
+        "title": "Launch-ready product foundations",
+        "description": "Transform ideas into validated prototypes and production-grade applications.",
+        "bullets": [
+          "Discovery sessions to translate business goals into actionable scope",
+          "Design systems and UX flows ready for cross-team collaboration",
+          "MVP delivery with CI/CD, analytics, and documentation"
+        ]
+      },
+      {
+        "title": "Modernisation without downtime",
+        "description": "Upgrade legacy stacks while keeping customers online.",
+        "bullets": [
+          "Progressive migrations from SPA or CMS setups to Next.js",
+          "Performance auditing with actionable Core Web Vitals fixes",
+          "Accessibility remediation aligned with WCAG 2.2 AA"
+        ]
+      },
+      {
+        "title": "Long-term engineering partnership",
+        "description": "Embed a senior engineer who ships features and mentors in-house teams.",
+        "bullets": [
+          "Flexible retainer for roadmap execution and emergency support",
+          "Pair programming, reviews, and knowledge sharing rituals",
+          "Transparent velocity tracking and quarterly planning"
+        ]
+      }
+    ],
+    "cta": {
+      "title": "Let’s design the next solution together",
+      "description": "Tell me about your product vision, and we’ll shape a roadmap that fits your timeline and budget.",
+      "buttonLabel": "Start the conversation",
+      "buttonHref": "mailto:contato@example.com"
+    }
+  },
+  "projectsPage": {
+    "metadata": {
+      "title": "Projects & Case Studies | Leo Jansen",
+      "description": "Dive into shipped products, experiments, and migrations built with Leonardo Jansen for startups and innovation teams."
+    },
+    "hero": {
+      "eyebrow": "Projects",
+      "title": "Shipping polished products your users feel instantly.",
+      "subtitle": "From prototypes to platform refreshes, these collaborations blend product thinking with reliable engineering execution."
+    },
+    "intro": "Each project starts with understanding the problem deeply, aligning stakeholders, and then iterating quickly with production-ready code.",
+    "caseStudies": {
+      "heading": "Selected collaborations",
+      "description": "A snapshot of engagements that helped teams move faster, de-risk launches, and create modern experiences."
+    },
+    "cta": {
+      "title": "Have a challenge that needs momentum?",
+      "description": "Whether you need a partner for a new product or help evolving an existing platform, let's map the next milestone together.",
+      "buttonLabel": "Book a discovery call",
+      "buttonHref": "mailto:contato@example.com"
+    }
+  },
+  "aboutPage": {
+    "metadata": {
+      "title": "About Leonardo Jansen | Product-focused Engineer",
+      "description": "Understand the journey, values, and approach Leonardo brings to every collaboration as a senior web engineer."
+    },
+    "hero": {
+      "eyebrow": "About",
+      "title": "Engineering becomes meaningful when it solves human problems.",
+      "subtitle": "I'm Leonardo Jansen, a web engineer focused on translating complex requirements into clear, delightful experiences."
+    },
+    "bio": [
+      {
+        "title": "Hybrid skill set",
+        "body": "I bridge product strategy, UX collaboration, and hands-on engineering to help teams deliver end-to-end web experiences."
+      },
+      {
+        "title": "Crafted with intent",
+        "body": "My process mixes rapid prototyping, rigorous code quality, and user-first storytelling to ensure the product vision remains intact."
+      },
+      {
+        "title": "Continuous learning",
+        "body": "From performance budgets to accessibility best practices, I keep iterating on my toolkit so each project benefits from the latest capabilities."
+      }
+    ],
+    "highlights": [
+      { "label": "Years shipping digital products", "value": "10+" },
+      { "label": "Shipped Next.js launches", "value": "35" },
+      { "label": "Workshops facilitated", "value": "20" }
+    ],
+    "values": {
+      "heading": "Principles I work by",
+      "items": [
+        "Lead with empathy for users and teammates.",
+        "Prefer clarity over cleverness in both code and communication.",
+        "Ship iteratively, measure outcomes, and keep improving."
+      ]
+    },
+    "timelineHeading": "Trajectory",
+    "timeline": [
+      {
+        "period": "2014 - 2017",
+        "title": "Foundations in front-end craft",
+        "description": "Started as a UI developer, mastering HTML, CSS, and the principles of accessible design."
+      },
+      {
+        "period": "2018 - 2021",
+        "title": "Product engineering in SaaS",
+        "description": "Led feature squads, integrating design systems, analytics, and marketing automation."
+      },
+      {
+        "period": "2022 - Today",
+        "title": "Next.js specialist for high-growth teams",
+        "description": "Partnering with startups and enterprises to deliver resilient web applications at scale."
+      }
+    ],
+    "cta": {
+      "title": "Let's build something users remember",
+      "description": "Share your product vision and I’ll help outline the path from discovery to launch.",
+      "buttonLabel": "Schedule a talk",
+      "buttonHref": "mailto:contato@example.com"
+    }
+  },
   "githubStats": {
     "title": "GitHub Stats",
     "repos": "Public Repos",

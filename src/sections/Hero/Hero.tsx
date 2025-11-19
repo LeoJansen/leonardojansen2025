@@ -49,7 +49,7 @@ const Hero = ({ dictionary }: HeroProps) => {
       { opacity: 1 },
       {
         opacity: 0.15,
-        duration: 1.7,
+        duration: 1.2,
         ease: "power2.inOut",
         yoyo: true,
         repeat: -1,

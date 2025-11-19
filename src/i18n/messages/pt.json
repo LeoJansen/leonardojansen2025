@@ -64,6 +64,136 @@
       }
     ]
   },
+  "solutions": {
+    "metadata": {
+      "title": "Soluções Web Sob Medida | Leo Jansen",
+      "description": "Conheça as soluções entregues por Leonardo Jansen: descoberta, modernização e parceria técnica contínua."
+    },
+    "hero": {
+      "eyebrow": "Soluções",
+      "title": "Experiências web orientadas ao produto para times que precisam acelerar.",
+      "subtitle": "Do planejamento à entrega, conecto-me à sua estratégia para desenhar, construir e lançar experiências ambiciosas em Next.js."
+    },
+    "pillars": [
+      {
+        "title": "Fundamentos prontos para lançamento",
+        "description": "Transformo ideias em protótipos validados e aplicações prontas para produção.",
+        "bullets": [
+          "Workshops de discovery para traduzir objetivos de negócio em escopo acionável",
+          "Design system e fluxos de UX preparados para colaboração entre times",
+          "Entrega de MVP com CI/CD, analytics e documentação"
+        ]
+      },
+      {
+        "title": "Modernização sem interrupções",
+        "description": "Atualize stacks legadas mantendo os clientes online.",
+        "bullets": [
+          "Migrações progressivas de SPAs ou CMS para Next.js",
+          "Auditoria de performance com correções práticas de Core Web Vitals",
+          "Adequação de acessibilidade alinhada à WCAG 2.2 AA"
+        ]
+      },
+      {
+        "title": "Parceria de engenharia contínua",
+        "description": "Conte com um engenheiro sênior que entrega features e orienta seu time interno.",
+        "bullets": [
+          "Retainer flexível para executar roadmap e suporte emergencial",
+          "Pair programming, reviews e rituais de compartilhamento de conhecimento",
+          "Acompanhamento transparente de velocidade e planejamento trimestral"
+        ]
+      }
+    ],
+    "cta": {
+      "title": "Vamos desenhar a próxima solução juntos",
+      "description": "Compartilhe a visão do seu produto e criaremos um plano que caiba no seu prazo e orçamento.",
+      "buttonLabel": "Iniciar a conversa",
+      "buttonHref": "mailto:contato@example.com"
+    }
+  },
+  "projectsPage": {
+    "metadata": {
+      "title": "Projetos & Estudos de Caso | Leo Jansen",
+      "description": "Explore produtos lançados, experimentos e migrações construídos com Leonardo Jansen para startups e times de inovação."
+    },
+    "hero": {
+      "eyebrow": "Projetos",
+      "title": "Entrego produtos refinados que os usuários sentem de imediato.",
+      "subtitle": "De protótipos a renovações completas, essas colaborações unem pensamento de produto com execução técnica confiável."
+    },
+    "intro": "Cada projeto começa entendendo profundamente o problema, alinhando as partes envolvidas e iterando rápido com código pronto para produção.",
+    "caseStudies": {
+      "heading": "Colaborações em destaque",
+      "description": "Um recorte de projetos que ajudaram equipes a ganhar velocidade, reduzir riscos de lançamento e criar experiências modernas."
+    },
+    "cta": {
+      "title": "Tem um desafio que precisa ganhar tração?",
+      "description": "Seja para lançar um novo produto ou evoluir sua plataforma atual, vamos desenhar juntos o próximo marco.",
+      "buttonLabel": "Agendar uma call",
+      "buttonHref": "mailto:contato@example.com"
+    }
+  },
+  "aboutPage": {
+    "metadata": {
+      "title": "Sobre Leonardo Jansen | Engenheiro focado em produto",
+      "description": "Conheça a jornada, os valores e a abordagem que Leonardo leva para cada colaboração como engenheiro web sênior."
+    },
+    "hero": {
+      "eyebrow": "Sobre",
+      "title": "Engenharia ganha sentido quando resolve problemas humanos.",
+      "subtitle": "Sou Leonardo Jansen, engenheiro web dedicado a traduzir requisitos complexos em experiências claras e envolventes."
+    },
+    "bio": [
+      {
+        "title": "Habilidade híbrida",
+        "body": "Transito entre estratégia de produto, colaboração com UX e engenharia prática para entregar experiências web ponta a ponta."
+      },
+      {
+        "title": "Construção com intenção",
+        "body": "Meu processo combina prototipação rápida, código com alto padrão e narrativa centrada no usuário para manter a visão do produto viva."
+      },
+      {
+        "title": "Aprendizado contínuo",
+        "body": "De budgets de performance a boas práticas de acessibilidade, atualizo constantemente meu repertório para que cada projeto usufrua das melhores ferramentas."
+      }
+    ],
+    "highlights": [
+      { "label": "Anos lançando produtos digitais", "value": "10+" },
+      { "label": "Lançamentos em Next.js", "value": "35" },
+      { "label": "Workshops facilitados", "value": "20" }
+    ],
+    "values": {
+      "heading": "Princípios que me guiam",
+      "items": [
+        "Liderar com empatia por usuários e colegas.",
+        "Priorizar clareza acima de esperteza no código e na comunicação.",
+        "Entregar de forma iterativa, medir resultados e evoluir sempre."
+      ]
+    },
+    "timelineHeading": "Trajetória",
+    "timeline": [
+      {
+        "period": "2014 - 2017",
+        "title": "Fundamentos em front-end",
+        "description": "Iniciei como desenvolvedor de UI, dominando HTML, CSS e princípios de design acessível."
+      },
+      {
+        "period": "2018 - 2021",
+        "title": "Engenharia de produto em SaaS",
+        "description": "Liderei squads de features, integrando design systems, analytics e automação de marketing."
+      },
+      {
+        "period": "2022 - Atual",
+        "title": "Especialista em Next.js para times em crescimento",
+        "description": "Parceria com startups e empresas para entregar aplicações web resilientes em escala."
+      }
+    ],
+    "cta": {
+      "title": "Vamos criar algo que os usuários lembrem",
+      "description": "Compartilhe a visão do seu produto e eu te ajudo a desenhar o caminho da descoberta ao lançamento.",
+      "buttonLabel": "Marcar uma conversa",
+      "buttonHref": "mailto:contato@example.com"
+    }
+  },
   "githubStats": {
     "title": "Estatísticas do GitHub",
     "repos": "Repositórios Públicos",
