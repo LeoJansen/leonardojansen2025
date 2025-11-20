@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import { defaultLocale, isLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
+import Topbar from "@/sections/Topbar";
 
 type LayoutParams = {
   locale: string;
@@ -48,5 +49,13 @@ export default async function LocaleLayout({
     notFound();
   }
 
-  return <>{children}</>;
+  const dictionary = getDictionary(locale);
+  const localeSwitcher = dictionary.navigation?.localeSwitcher;
+
+  return (
+    <>
+      <Topbar locale={locale} localeSwitcher={localeSwitcher} />
+      {children}
+    </>
+  );
 }
