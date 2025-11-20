@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { defaultLocale, isLocale } from "@/i18n/config";
+import About from "@/sections/About";
+import GithubStats from "@/sections/GithubStats/GithubStats";
+import { defaultLocale, isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 
 type AboutPageParams = Promise<{ locale: string }>;
@@ -28,15 +30,16 @@ export default async function AboutPage({ params }: AboutPageProps) {
     notFound();
   }
 
-  const dictionary = getDictionary(resolvedParams.locale);
+  const locale = resolvedParams.locale as Locale;
+  const dictionary = getDictionary(locale);
   const { aboutPage } = dictionary;
   const { hero, bio, highlights, values, timelineHeading, timeline, cta } = aboutPage;
+  const aboutDictionary = dictionary.about;
+  const githubStatsDictionary = dictionary.githubStats;
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#040016] text-white">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(185,101,255,0.18),_rgba(4,0,22,0.9)_60%),_linear-gradient(180deg,_rgba(4,0,22,1)_0%,_#040016_100%)]" />
-
-      <div className="relative z-10 mx-auto w-full max-w-6xl px-6 py-24 sm:px-10 lg:px-12">
+    <>
+      <main className="relative mx-auto w-full max-w-6xl px-6 py-24 text-white sm:px-10 lg:px-12">
         <header className="max-w-4xl space-y-6">
           <span className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-1 text-sm font-medium uppercase tracking-[0.2em] text-white/70">
             {hero.eyebrow}
@@ -115,7 +118,14 @@ export default async function AboutPage({ params }: AboutPageProps) {
             </Link>
           </div>
         </section>
+      </main>
+
+      <div className="bg-[#030005]">
+        <GithubStats dictionary={githubStatsDictionary} locale={locale} />
+        <div className="mx-auto w-full max-w-6xl px-6 pb-24 sm:px-10 lg:px-12">
+          <About dictionary={aboutDictionary} />
+        </div>
       </div>
-    </main>
+    </>
   );
 }

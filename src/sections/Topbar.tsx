@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
@@ -11,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/getDictionary";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 gsap.registerPlugin(useGSAP);
 
@@ -18,7 +20,7 @@ type NavKey = "home" | "solutions" | "projects" | "about";
 
 const NAV_LINK_PATHS: Record<NavKey, string> = {
     home: "/",
-    solutions: "/catalog",
+    solutions: "/solutions",
     projects: "/projects",
     about: "/about",
 };
@@ -67,7 +69,7 @@ const Topbar = ({
     navLabels,
     ctaLabel,
     ctaHref,
-    brand = "Leo Jansen",
+    brand = "LEO.DEV",
 }: TopbarProps) => {
     const pathname = usePathname();
     const containerRef = useRef<HTMLDivElement | null>(null);
@@ -93,6 +95,14 @@ const Topbar = ({
     const resolvedCtaHref = ctaHref ?? buildHref("/contact");
     const resolvedSwitcher = localeSwitcher ?? DEFAULT_SWITCHER;
 
+    const [brandPrimary, brandAccent] = useMemo(() => {
+        const parts = brand.split(".");
+        if (parts.length >= 2) {
+            return [parts[0], `.${parts.slice(1).join(".")}`];
+        }
+        return ["LEO", ".DEV"];
+    }, [brand]);
+
     const isLinkActive = (href: string) => {
         if (!pathname) return false;
         if (href === `/${locale}`) {
@@ -109,7 +119,7 @@ const Topbar = ({
         () => {
             if (!menuRef.current) return;
             gsap.set(menuRef.current, {
-                height: 0,
+                yPercent: -100,
                 autoAlpha: 0,
                 display: "none",
                 pointerEvents: "none",
@@ -136,10 +146,10 @@ const Topbar = ({
                 gsap
                     .timeline()
                     .to(menu, {
-                        height: "100vh",
+                        yPercent: 0,
                         autoAlpha: 1,
-                        duration: 0.4,
-                        ease: "power2.out",
+                        duration: 0.45,
+                        ease: "power3.out",
                     })
                     .fromTo(
                         linkElements,
@@ -150,11 +160,11 @@ const Topbar = ({
                         {
                             y: 0,
                             autoAlpha: 1,
-                            duration: 0.45,
+                            duration: 0.35,
                             stagger: 0.08,
                             ease: "power3.out",
                         },
-                        "-=0.15"
+                        "-=0.2"
                     );
             } else {
                 gsap
@@ -169,7 +179,7 @@ const Topbar = ({
                     .to(
                         menu,
                         {
-                            height: 0,
+                            yPercent: -100,
                             autoAlpha: 0,
                             duration: 0.35,
                             ease: "power2.in",
@@ -190,31 +200,42 @@ const Topbar = ({
     return (
         <header
             ref={containerRef}
-            className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-black/30 backdrop-blur-md"
+            className="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-[#030005]/80 backdrop-blur-md"
         >
             <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-6">
-                <Link href={buildHref("/")} className="text-sm font-semibold uppercase tracking-[0.4em] text-white">
-                    {brand}
+                <Link
+                    href={buildHref("/")}
+                    className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.5em]"
+                >
+                    <Image src="/assets/logo-horizontal-black-bg.svg" 
+                    alt="Logo"
+                     width={1570}
+                      height={417}
+                      className="w-40"
+                      />
                 </Link>
 
                 <nav className="hidden items-center gap-8 lg:flex">
-                    {resolvedNav.map(({ key, label, href }) => (
-                        <Link
-                            key={key}
-                            href={href}
-                            className={cn(
-                                "text-sm font-medium uppercase tracking-[0.2em] transition-colors",
-                                isLinkActive(href)
-                                    ? "text-cyan-200"
-                                    : "text-slate-400 hover:text-white"
-                            )}
-                        >
-                            {label}
-                        </Link>
-                    ))}
+                    {resolvedNav.map(({ key, label, href }) => {
+                        const active = isLinkActive(href);
+                        return (
+                            <Link
+                                key={key}
+                                href={href}
+                                className={cn(
+                                    "text-sm font-semibold uppercase tracking-[0.3em] transition-colors",
+                                    active
+                                        ? "text-white drop-shadow-[0_0_8px_rgba(124,58,237,0.8)]"
+                                        : "text-gray-400 hover:text-white"
+                                )}
+                            >
+                                {label}
+                            </Link>
+                        );
+                    })}
                 </nav>
 
-                <div className="hidden items-center gap-3 lg:flex">
+                <div className="hidden items-center gap-5 lg:flex">
                     <LocaleToggle
                         currentLocale={locale}
                         labels={resolvedSwitcher.labels}
@@ -222,7 +243,7 @@ const Topbar = ({
                     />
                     <Button
                         asChild
-                        className="rounded-full border border-cyan-400/40 bg-cyan-400/20 px-6 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-cyan-100 shadow-[0_0_25px_rgba(34,211,238,0.25)] transition hover:bg-cyan-300/30 hover:text-white"
+                        className="rounded-full bg-[#7c3aed] px-6 py-2 text-sm font-bold uppercase tracking-[0.3em] text-white shadow-[0_0_16px_rgba(124,58,237,0.35)] transition duration-300 hover:bg-[#6d28d9] hover:shadow-[0_0_20px_rgba(124,58,237,0.5)]"
                     >
                         <Link href={resolvedCtaHref}>{resolvedCtaLabel}</Link>
                     </Button>
@@ -230,45 +251,26 @@ const Topbar = ({
 
                 <button
                     type="button"
-                    className="flex size-11 items-center justify-center rounded-full border border-white/20 bg-white/5 lg:hidden"
+                    className="flex size-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition hover:border-white/30 lg:hidden"
                     aria-label="Abrir menu de navegação"
                     aria-expanded={isOpen ? "true" : "false"}
                     onClick={() => setIsOpen((prev) => !prev)}
                 >
-                    <span className="relative block h-4 w-6">
-                        <span
-                            className={cn(
-                                "absolute left-0 h-0.5 w-full bg-white transition-all",
-                                isOpen ? "top-1/2 rotate-45" : "top-0"
-                            )}
-                        />
-                        <span
-                            className={cn(
-                                "absolute left-0 h-0.5 w-full bg-white transition-all",
-                                isOpen ? "opacity-0" : "top-1/2 -translate-y-1/2"
-                            )}
-                        />
-                        <span
-                            className={cn(
-                                "absolute left-0 h-0.5 w-full bg-white transition-all",
-                                isOpen ? "bottom-1/2 -rotate-45" : "bottom-0"
-                            )}
-                        />
-                    </span>
+                    {isOpen ? <X className="size-5" /> : <Menu className="size-5" />}
                 </button>
             </div>
 
             <div
                 ref={menuRef}
-                className="fixed inset-0 z-50 flex h-0 flex-col items-center justify-center gap-10 bg-black px-6 text-center"
+                className="fixed inset-0 z-40 hidden flex-col items-center justify-center gap-10 bg-[#030005] px-6 text-center"
             >
-                <div className="flex flex-col items-center gap-6 text-2xl font-semibold uppercase tracking-[0.3em]">
+                <div className="flex flex-col items-center gap-6 text-2xl font-semibold uppercase tracking-[0.4em]">
                     {resolvedNav.map(({ key, label, href }) => (
                         <Link
                             key={`mobile-${key}`}
                             href={href}
                             data-mobile-link
-                            className="text-white/80 transition hover:text-white"
+                            className="text-gray-200 transition hover:text-white"
                             onClick={() => setIsOpen(false)}
                         >
                             {label}
@@ -280,14 +282,14 @@ const Topbar = ({
                     asChild
                     size="lg"
                     data-mobile-link
-                    className="w-full max-w-xs rounded-full border border-cyan-300/60 bg-cyan-400/20 px-8 py-6 text-base font-semibold uppercase tracking-[0.3em] text-cyan-100 shadow-[0_0_35px_rgba(34,211,238,0.35)]"
+                    className="w-full max-w-xs rounded-full bg-[#7c3aed] px-8 py-6 text-base font-bold uppercase tracking-[0.4em] text-white shadow-[0_0_16px_rgba(124,58,237,0.35)] transition hover:bg-[#6d28d9] hover:shadow-[0_0_20px_rgba(124,58,237,0.5)]"
                 >
                     <Link href={resolvedCtaHref} onClick={() => setIsOpen(false)}>
                         {resolvedCtaLabel}
                     </Link>
                 </Button>
 
-                <div data-mobile-link className="text-sm">
+                <div data-mobile-link className="text-sm text-gray-300">
                     <LocaleToggle
                         currentLocale={locale}
                         labels={resolvedSwitcher.labels}
