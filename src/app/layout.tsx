@@ -25,6 +25,10 @@ export const metadata: Metadata = {
   title: "Leo Jansen",
   description:
     "Portfólio digital de Leonardo Jansen com projetos web modernos construídos em Next.js.",
+    icons: {
+    icon: "/assets/favicon.ico",
+    apple: "/apple-touch-icon.png",          
+    },
 };
 
 type RootLayoutProps = {

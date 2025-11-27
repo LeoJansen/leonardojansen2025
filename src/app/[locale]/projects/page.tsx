@@ -84,8 +84,8 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
                 </div>
 
                 <ul className="flex flex-wrap gap-2 text-sm text-white/70">
-                  {project.technologies?.map((tech) => (
-                    <li key={tech} className="rounded-full border border-white/10 bg-white/5 px-3 py-1">
+                  {project.technologies?.map((tech, index) => (
+                    <li key={`${project.id}-${tech}-${index}`} className="rounded-full border border-white/10 bg-white/5 px-3 py-1">
                       {tech}
                     </li>
                   ))}

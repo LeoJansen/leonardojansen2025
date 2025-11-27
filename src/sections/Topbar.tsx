@@ -207,11 +207,11 @@ const Topbar = ({
                     href={buildHref("/")}
                     className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.5em]"
                 >
-                    <Image src="/assets/logo-horizontal-black-bg.svg" 
+                    <Image src="/assets/leoLogoIcon.svg" 
                     alt="Logo"
                      width={1570}
                       height={417}
-                      className="w-40"
+                      className="w-10"
                       />
                 </Link>
 
