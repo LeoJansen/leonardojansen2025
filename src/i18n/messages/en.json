@@ -11,7 +11,6 @@
   "navigation": {
     "items": [
       { "label": "Home", "href": "#home" },
-      { "label": "Services", "href": "#services" },
       { "label": "About", "href": "#about" },
       { "label": "Projects", "href": "#projects" },
       { "label": "Skills", "href": "#skills" },
@@ -35,34 +34,6 @@
   "about": {
     "quoteHtml": "\u201cProgramming is not just a vocation for me. It's what I was <strong class=\"text-[#87659e]\">born to do</strong>. Every time I get involved in a project and start coding, I feel that my purpose in life is to be in contact with algorithms.\u201d",
     "imageAlt": "Portrait of Leonardo Jansen"
-  },
-  "services": {
-    "items": [
-      {
-        "title": "Web Application Development",
-        "description": "I build robust and scalable applications from the ground up, leveraging the power of Next.js and React to deliver high-performance solutions.",
-        "imageSrc": "/assets/services1.png",
-        "imageAlt": "Design of a modern web application"
-      },
-      {
-        "title": "Technical Consulting",
-        "description": "I offer technical consulting to help you optimize, refactor, or plan your project. I assist in finding the best solutions and implementing efficient practices.",
-        "imageSrc": "/assets/services2.png",
-        "imageAlt": "Developer collaborating during a consulting session"
-      },
-      {
-        "title": "Performance Optimization & SEO",
-        "description": "I transform the user experience by ensuring a fast website with high Core Web Vitals, which improves your ranking on search engines.",
-        "imageSrc": "/assets/services3.png",
-        "imageAlt": "Performance metrics dashboard illustration"
-      },
-      {
-        "title": "CMS Integration",
-        "description": "I integrate Content Management Systems like Contentful, Sanity, or Strapi, giving you the power to easily manage and update your website's content.",
-        "imageSrc": "/assets/services4.png",
-        "imageAlt": "Content management system interface"
-      }
-    ]
   },
   "solutions": {
     "metadata": {

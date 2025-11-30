@@ -1,6 +1,5 @@
 import InitialLoader from "@/components/InitialLoader";
 import Hero from "@/sections/Hero/Hero";
-import Services from "@/sections/Services/Services";
 import Clients from "@/sections/Clients/Clients";
 import Contact from "@/sections/Contact";
 import Footer from "@/sections/Footer";
@@ -13,7 +12,7 @@ type AppProps = {
 };
 
 const App = ({ dictionary }: AppProps) => {
-  const { hero, services, clients, contact, footer, loader } = dictionary;
+  const { hero, clients, contact, footer, loader } = dictionary;
 
   return (
     <InitialLoader
@@ -25,7 +24,6 @@ const App = ({ dictionary }: AppProps) => {
       }}
     >
       <Hero dictionary={hero} />
-      <Services items={services.items} />
       <Clients
         heading={clients.heading}
         intro={clients.intro}
