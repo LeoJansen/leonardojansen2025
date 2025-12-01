@@ -42,7 +42,7 @@ export const CanvasComponent = ({ spotsOn = true, lightMessage }) => {
         />
         <MovingSpot
           depthBuffer={depthBuffer}
-          color="rgb(150, 51, 250)"
+          color="#7C3AED"
           opacity={spotsOn ? 0.85 : 0}
           position={[-1, 2, 0.91]}
           enabled={spotsOn}

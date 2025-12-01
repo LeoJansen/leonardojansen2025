@@ -63,17 +63,7 @@ const Hero = ({ dictionary }: HeroProps) => {
 
   return (
     <section id="home" className="relative h-screen w-screen overflow-hidden z-40">
-      <div className="c-space absolute left-10 right-0 top-10 z-10 w-full text-center">
-        <Image
-          src="/assets/leoLogoIcon.svg"
-          alt={dictionary.logoAlt}
-          width={437}
-          height={395}
-          className="h-10 w-10 filter brightness-[0.678]"
-          priority
-        />
-        
-      </div>
+  
       <div className="absolute inset-0">
         <Canvas
           shadows
@@ -95,7 +85,7 @@ const Hero = ({ dictionary }: HeroProps) => {
                 <span
                   ref={switchBgRef}
                   aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 rounded-full bg-[#b965ff] opacity-100"
+                  className="pointer-events-none absolute inset-0 rounded-full bg-[#7C3AED] opacity-100"
                 />
                 <span className="sr-only">{dictionary.switchAriaLabel}</span>
                 <input

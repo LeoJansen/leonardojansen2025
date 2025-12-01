@@ -4,6 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* --- Mapeamento Shadcn UI --- */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-open-sans);
@@ -42,43 +43,87 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  /* --- PALETA PERSONALIZADA (Cyber Tech) --- */
+  /* Cores Base */
+  --color-void: #050505;        /* Preto Quase Absoluto (Background) */
+  --color-abyss: #0A0A0A;       /* Preto Profundo (Seções Secundárias) */
+  --color-obsidian: #121212;    /* Superfícies/Cards */
+  
+  /* Cores Neon */
+  --color-neon-base: #7C3AED;   /* Violeta Principal */
+  --color-neon-hover: #6D28D9;  /* Violeta Escuro (Hover) */
+  --color-neon-light: #8B5CF6;  /* Violeta Claro (Texto Destaque) */
+  --color-neon-glow: #A78BFA;   /* Brilho Intenso */
+  
+  /* Sombras Personalizadas (Glow Effects) */
+  --shadow-neon: 0 0 20px -5px rgba(124, 58, 237, 0.5);
+  --shadow-neon-strong: 0 0 30px -5px rgba(124, 58, 237, 0.7);
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  
+  /* Gradientes */
+  --image-cyber-gradient: linear-gradient(to right, #050505, #0a0a0a);
 }
 
 :root {
   --radius: 0.625rem;
-  --background: #ffffff;
-  --foreground: #232323;
-  --card: #ffffff;
-  --card-foreground: #232323;
-  --popover: #ffffff;
-  --popover-foreground: #232323;
-  --primary: #343434;
-  --primary-foreground: #fbfbfb;
-  --secondary: #f7f7f7;
-  --secondary-foreground: #343434;
-  --muted: #f7f7f7;
-  --muted-foreground: #8a8a8a;
-  --accent: #f7f7f7;
-  --accent-foreground: #8e7b94;
-  --destructive: #DC2626;
-  --border: #ececec;
-  --input: #ececec;
-  --ring: #b3b3b3;
-  --chart-1: #F59E0B;
-  --chart-2: #06B6D4;
-  --chart-3: #3B82F6;
-  --chart-4: #84CC16;
-  --chart-5: #22C55E;
-  --sidebar: #fbfbfb;
-  --sidebar-foreground: #232323;
-  --sidebar-primary: #343434;
-  --sidebar-primary-foreground: #fbfbfb;
-  --sidebar-accent: #f7f7f7;
-  --sidebar-accent-foreground: #343434;
-  --sidebar-border: #ececec;
-  --sidebar-ring: #b3b3b3;
-  /* Force UA widgets (scrollbars, inputs) to light tone regardless of OS */
-  color-scheme: light;
+  
+  /* --- TEMA DARK / CYBER TECH DEFINITIVO --- */
+  
+  /* Backgrounds */
+  --background: #050505; /* Void Black */
+  --foreground: #F3F4F6; /* Texto quase branco (Holo Text) */
+  
+  /* Surfaces (Cards, Popovers) */
+  --card: #121212;       /* Obsidian */
+  --card-foreground: #F3F4F6;
+  --popover: #121212;
+  --popover-foreground: #F3F4F6;
+  
+  /* Elementos Primários (Botões, Destaques) */
+  --primary: #7C3AED;    /* Neon Base */
+  --primary-foreground: #FFFFFF;
+  
+  /* Elementos Secundários */
+  --secondary: #1F1F22;  /* Cinza Escuro Técnico */
+  --secondary-foreground: #F3F4F6;
+  
+  /* Elementos Muted (Fundo sutil) */
+  --muted: #0A0A0A;      /* Abyss */
+  --muted-foreground: #9CA3AF; /* Cyber Gray */
+  
+  /* Accent (Hover em listas, etc) */
+  --accent: #1E1B4B;     /* Roxo muito escuro */
+  --accent-foreground: #A78BFA; /* Neon Glow */
+  
+  /* Destructive */
+  --destructive: #7F1D1D;
+  --destructive-foreground: #F3F4F6;
+  
+  /* Bordas e Inputs */
+  --border: #27272A;     /* Zinco Escuro (sutil para não brigar com o neon) */
+  --input: #27272A;
+  --ring: #7C3AED;       /* Anel de foco roxo */
+  
+  /* Gráficos */
+  --chart-1: #7C3AED;
+  --chart-2: #A78BFA;
+  --chart-3: #8B5CF6;
+  --chart-4: #4C1D95;
+  --chart-5: #2E1065;
+  
+  /* Sidebar (se aplicável) */
+  --sidebar: #050505;
+  --sidebar-foreground: #F3F4F6;
+  --sidebar-primary: #7C3AED;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #121212;
+  --sidebar-accent-foreground: #F3F4F6;
+  --sidebar-border: #27272A;
+  --sidebar-ring: #7C3AED;
+
+  /* Força widgets do navegador para o modo escuro */
+  color-scheme: dark;
 }
 
 @layer base {
@@ -87,29 +132,34 @@
   }
   body {
     font-family: var(--font-sans), system-ui, -apple-system, Segoe UI, Roboto, Arial, Noto Sans, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    /* Adiciona um gradiente sutil de fundo para evitar o chapado absoluto se desejar */
+    background-image: radial-gradient(circle at center top, #1e1b4b 0%, #050505 40%);
+    background-attachment: fixed;
   }
 }
 
 /* Headings use Poppins */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-title), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  @apply text-foreground font-bold tracking-tight;
 }
 
-/* Optional helpers */
-.font-title { font-family: var(--font-title), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial; }
-.font-body { font-family: var(--font-sans), system-ui, -apple-system, Segoe UI, Roboto, Arial, Noto Sans; }
+/* Helpers para Classes Utilitárias do Tema */
+.text-glow {
+  text-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
+}
 
 @layer components {
+  /* Atualizei seu star-field para combinar com o tema roxo */
   .star-field-pattern {
     background-image:
-      radial-gradient(1px 1px at 10px 20px, rgba(168, 111, 255, 0.55), transparent 55%),
-      radial-gradient(1px 1px at 130px 80px, rgba(233, 210, 255, 0.6), transparent 60%),
-      radial-gradient(2px 2px at 90px 120px, rgba(194, 146, 255, 0.45), transparent 55%),
-      radial-gradient(1px 1px at 60px 160px, rgba(147, 96, 236, 0.5), transparent 55%);
+      radial-gradient(1px 1px at 10px 20px, rgba(168, 111, 255, 0.3), transparent 55%),
+      radial-gradient(1px 1px at 130px 80px, rgba(233, 210, 255, 0.4), transparent 60%),
+      radial-gradient(2px 2px at 90px 120px, rgba(194, 146, 255, 0.2), transparent 55%),
+      radial-gradient(1px 1px at 60px 160px, rgba(147, 96, 236, 0.3), transparent 55%);
     background-size: 220px 220px, 280px 280px, 260px 260px, 240px 240px;
     background-position: 0 0, 30px 60px, 120px 40px, 60px 140px;
+    opacity: 0.6; /* Suavizado para não poluir o fundo escuro */
   }
 }
-
-

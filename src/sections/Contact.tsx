@@ -21,7 +21,7 @@ const Contact = ({ dictionary }: ContactProps) => {
         <div>
           <a
             href={dictionary.link}
-            className="inline-flex rounded-md bg-[#7F0098] px-6 py-3 text-base font-medium text-white transition-colors hover:bg-[#9d19b9]"
+            className="inline-flex rounded-md bg-[#7C3AED] px-6 py-3 text-base font-medium text-white transition-colors hover:bg-[hsl(262,83%,38%)]"
           >
             {dictionary.cta}
           </a>
