@@ -3,8 +3,9 @@ import Hero from "@/sections/Hero/Hero";
 import Clients from "@/sections/Clients/Clients";
 import Contact from "@/sections/Contact";
 import Footer from "@/sections/Footer";
-import UnclaimedTerritory from "@/sections/UnclaimedTerritory/UnclaimedTerritory";
-import UnclaimedTerritoryMobile from "@/sections/UnclaimedTerritory/UnclaimedTerritoryMobile";
+import SalesMachines from "@/sections/SalesMachines";
+import ResponsiveUnclaimedTerritory from "@/sections/UnclaimedTerritory/ResponsiveUnclaimedTerritory";
+import type { UnclaimedTerritoryCopy } from "@/sections/UnclaimedTerritory/UnclaimedTerritory";
 import type { Dictionary } from "@/i18n/getDictionary";
 import type { Locale } from "@/i18n/config";
 
@@ -15,6 +16,7 @@ type AppProps = {
 
 const App = ({ dictionary }: AppProps) => {
   const { hero, clients, contact, footer, loader, unclaimedTerritory } = dictionary;
+  const unclaimedTerritoryCopy = unclaimedTerritory as UnclaimedTerritoryCopy;
 
   return (
     <InitialLoader
@@ -26,14 +28,8 @@ const App = ({ dictionary }: AppProps) => {
       }}
     >
       <Hero dictionary={hero} />
-      <section id="diagnostic" className="relative">
-        <div className="hidden md:block">
-          <UnclaimedTerritory copy={unclaimedTerritory} />
-        </div>
-        <div className="md:hidden">
-          <UnclaimedTerritoryMobile copy={unclaimedTerritory} />
-        </div>
-      </section>
+      <ResponsiveUnclaimedTerritory copy={unclaimedTerritoryCopy} />
+      <SalesMachines />
       <Clients
         heading={clients.heading}
         intro={clients.intro}
