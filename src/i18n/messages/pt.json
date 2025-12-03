@@ -211,5 +211,36 @@
   },
   "footer": {
     "text": "\u00a9 {{year}} Leonardo Jansen. Todos os direitos reservados."
+  },
+  "unclaimedTerritory": {
+    "badge": "Diagnóstico de Mercado",
+    "title": "The Unclaimed Territory",
+    "subtitle": "Existe um mercado inexplorado esperando pela sua empresa. Elimine os 4 bloqueios que te impedem de acessá-lo.",
+    "blocks": [
+      {
+        "title": "O Refém das Redes",
+        "description": "Sua empresa mora de aluguel no Instagram. Se o algoritmo mudar, seu negócio some. Redes sociais são terrenos alugados.",
+        "icon": "instagram",
+        "accent": "pink"
+      },
+      {
+        "title": "O Fantasma Digital",
+        "description": "Sem Google, sem clientes urgentes. Você está invisível para quem quer comprar agora e tem dinheiro na mão.",
+        "icon": "ghost",
+        "accent": "purple"
+      },
+      {
+        "title": "A Marca Genérica",
+        "description": "Visual amador impede preço premium. Sua marca precisa transmitir autoridade e luxo para sair da guerra de preços.",
+        "icon": "gem",
+        "accent": "cyan"
+      },
+      {
+        "title": "O Vendedor Cansado",
+        "description": "Chega de explicar o básico no WhatsApp. Automatize seu primeiro atendimento e receba apenas o cliente pronto.",
+        "icon": "messageCircle",
+        "accent": "green"
+      }
+    ]
   }
 }

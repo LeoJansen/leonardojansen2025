@@ -1,23 +1,8 @@
 import type { Metadata } from "next";
-import { Open_Sans, Poppins } from "next/font/google";
 import type { ReactNode } from "react";
 import "@/app/globals.css";
 import { defaultLocale, isLocale } from "@/i18n/config";
 // Using the automatic React JSX runtime – no need to import React.
-
-const openSans = Open_Sans({
-  variable: "--font-open-sans",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
-
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  display: "swap",
-});
 
 
 
@@ -45,7 +30,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={`${openSans.variable} ${poppins.variable} antialiased`}>
+      <body className="antialiased">
         {children}
       </body>
     </html>

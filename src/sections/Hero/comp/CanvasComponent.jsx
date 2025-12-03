@@ -35,7 +35,7 @@ export const CanvasComponent = ({ spotsOn = true, lightMessage }) => {
         {/* MovingSpot lights like in the provided example; toggle with left-click */}
         <MovingSpot
           depthBuffer={depthBuffer}
-          color="rgb(105, 152, 255)"
+          color="#06B6D4"
           opacity={spotsOn ? 0.85 : 0}
           position={[1, 2, -1]}
           enabled={spotsOn}

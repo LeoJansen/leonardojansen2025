@@ -211,5 +211,36 @@
   },
   "footer": {
     "text": "\u00a9 {{year}} Leonardo Jansen. All rights reserved."
+  },
+  "unclaimedTerritory": {
+    "badge": "Market Diagnostics",
+    "title": "The Unclaimed Territory",
+    "subtitle": "There is an unexplored market waiting for your company. Remove the four blockers standing in the way.",
+    "blocks": [
+      {
+        "title": "The Social Hostage",
+        "description": "Your business rents space on Instagram. When the algorithm shifts, you disappear. Social platforms are borrowed land.",
+        "icon": "instagram",
+        "accent": "pink"
+      },
+      {
+        "title": "The Digital Ghost",
+        "description": "No Google presence, no urgent clients. You're invisible to buyers who need you right now with budget in hand.",
+        "icon": "ghost",
+        "accent": "purple"
+      },
+      {
+        "title": "The Generic Brand",
+        "description": "Amateur visuals block premium pricing. Your brand must radiate authority and luxury to escape price wars.",
+        "icon": "gem",
+        "accent": "cyan"
+      },
+      {
+        "title": "The Exhausted Seller",
+        "description": "Stop repeating the basics on WhatsApp. Automate first-touch conversations and receive only ready-to-buy leads.",
+        "icon": "messageCircle",
+        "accent": "green"
+      }
+    ]
   }
 }

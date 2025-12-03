@@ -80,7 +80,7 @@ const Hero = ({ dictionary }: HeroProps) => {
           <Tooltip defaultOpen>
             <TooltipTrigger asChild>
               <label
-                className="absolute bottom-50 right-20 z-10 flex h-10 w-10 cursor-pointer select-none items-center justify-center rounded-full bg-[#34103b] overflow-hidden"
+                className="absolute bottom-50 right-20 z-10 flex h-10 w-10 cursor-pointer select-none items-center justify-center rounded-full bg-[hsl(290,58%,15%)] overflow-hidden"
               >
                 <span
                   ref={switchBgRef}
