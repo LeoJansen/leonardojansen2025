@@ -203,6 +203,16 @@
       }
     ]
   },
+  "projectShowcase": {
+    "badge": "CASE STUDY [DEPLOYED]",
+    "title": "From Local Workshop to Digital Authority",
+    "subtitle": "Florida Fresh \u2014 Upholstery Specialists",
+    "description": "Florida Fresh delivered elite upholstery services, but their online presence was timid. We built a bold visual platform that mirrors their craft, turning visitors into qualified leads.",
+    "highlightValue": "+40%",
+    "highlightLabel": "Revenue growth in 3 months",
+    "ctaLabel": "View project details",
+    "ctaHref": "/projects"
+  },
   "contact": {
     "heading": "Contact",
     "description": "Have a project in mind or just want to say hello? Reach out and let's build something great together.",
@@ -213,9 +223,9 @@
     "text": "\u00a9 {{year}} Leonardo Jansen. All rights reserved."
   },
   "unclaimedTerritory": {
-    "badge": "Market Diagnostics",
-    "title": "I don't just create websites. I create high-value digital experiences.",
-    "subtitle": "There is an unexplored market waiting for your company. Remove the four blockers standing in the way.",
+    "badge": "DIGITAL REALITY",
+    "title": "You built a castle on someone else's land.",
+    "subtitle": "Social media platforms change their rules, cut reach, and can ban your account without warning. Here are 4 risks of not having your own Digital Headquarters.",
     "blocks": [
       {
         "title": "The Social Hostage",

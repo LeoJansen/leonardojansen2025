@@ -61,11 +61,11 @@ const SalesMachinesDesktop = () => {
   return (
     <section
       id="sales-machines"
-      className="relative isolate overflow-hidden bg-gradient-to-b from-[#040104] via-[#080313] to-[#050105] px-6 py-20 text-white sm:px-10 lg:px-16"
+      className="relative isolate overflow-hidden  px-6 py-20 text-white sm:px-10 lg:px-16"
     >
       <div className="pointer-events-none absolute inset-0 -z-10 opacity-80">
-        <div className="absolute left-1/3 top-10 h-64 w-64 -translate-x-1/2 rounded-full bg-[#9333EA]/30 blur-[140px]" />
-        <div className="absolute bottom-0 right-10 h-72 w-72 rounded-full bg-cyan-500/20 blur-[140px]" />
+      
+      
       </div>
 
       <div className="mx-auto flex max-w-6xl flex-col gap-12">

@@ -203,6 +203,16 @@
       }
     ]
   },
+  "projectShowcase": {
+    "badge": "CASE STUDY [DEPLOYED]",
+    "title": "De Oficina Local a Referência Digital",
+    "subtitle": "Florida Fresh \u2014 Upholstery Specialists",
+    "description": "A Florida Fresh prestava um serviço de elite, mas sua presença online era tímida. Criamos uma plataforma visual robusta que reflete a qualidade do trabalho deles, transformando visitantes em leads qualificados.",
+    "highlightValue": "+40%",
+    "highlightLabel": "Aumento no faturamento em 3 meses",
+    "ctaLabel": "Ver Detalhes do Projeto",
+    "ctaHref": "/projects"
+  },
   "contact": {
     "heading": "Contato",
     "description": "Tem um projeto em mente ou quer apenas dizer olá? Entre em contato e vamos criar algo incrível juntos.",
@@ -213,9 +223,9 @@
     "text": "\u00a9 {{year}} Leonardo Jansen. Todos os direitos reservados."
   },
   "unclaimedTerritory": {
-    "badge": "Diagnóstico de Mercado",
-    "title": "Não crio apenas sites. Crio Experiências Digitais de Alto Valor.",
-    "subtitle": "Existe um mercado inexplorado esperando pela sua empresa. Elimine os 4 bloqueios que te impedem de acessá-lo.",
+    "badge": "REALIDADE DIGITAL",
+    "title": "Você Construiu um Castelo no Terreno dos Outros.",
+    "subtitle": "Redes sociais mudam as regras, cortam o alcance e podem banir a sua conta sem aviso. Veja os 4 riscos de não ter a sua própria Sede Digital.",
     "blocks": [
       {
         "title": "O Refém das Redes",

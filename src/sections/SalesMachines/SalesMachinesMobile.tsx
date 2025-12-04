@@ -39,12 +39,9 @@ const SalesMachinesMobile = () => {
   return (
     <section
       id="sales-machines"
-      className="relative isolate overflow-hidden bg-gradient-to-b from-[#050105] via-[#070214] to-[#050105] px-5 py-16 text-white"
+      className="relative isolate overflow-hidden  px-5 py-16 text-white"
     >
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute left-4 top-0 h-44 w-44 rounded-full bg-[#9333EA]/30 blur-[90px]" />
-        <div className="absolute bottom-4 right-2 h-52 w-52 rounded-full bg-cyan-400/20 blur-[100px]" />
-      </div>
+    
 
       <div className="mx-auto flex max-w-xl flex-col gap-10">
         <header className="space-y-3">
