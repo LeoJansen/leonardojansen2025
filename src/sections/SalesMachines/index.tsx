@@ -2,25 +2,30 @@
 
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+import type { SalesMachinesProps } from "./types";
 
-const SalesMachinesDesktop = dynamic(() => import("./SalesMachinesDesktop"), {
+const SalesMachinesDesktop = dynamic<SalesMachinesProps>(() => import("./SalesMachinesDesktop"), {
   ssr: false,
   loading: () => <SectionSkeleton />,
 });
 
-const SalesMachinesMobile = dynamic(() => import("./SalesMachinesMobile"), {
+const SalesMachinesMobile = dynamic<SalesMachinesProps>(() => import("./SalesMachinesMobile"), {
   ssr: false,
   loading: () => <SectionSkeleton />,
 });
 
-const SalesMachines = () => {
+const SalesMachines = ({ copy }: SalesMachinesProps) => {
   const isMobile = useIsMobile();
 
   if (isMobile === null) {
     return <SectionSkeleton />;
   }
 
-  return isMobile ? <SalesMachinesMobile /> : <SalesMachinesDesktop />;
+  return isMobile ? (
+    <SalesMachinesMobile copy={copy} />
+  ) : (
+    <SalesMachinesDesktop copy={copy} />
+  );
 };
 
 const useIsMobile = () => {

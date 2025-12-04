@@ -230,14 +230,33 @@
     ]
   },
   "projectShowcase": {
-    "badge": "CASE STUDY [DEPLOYED]",
-    "title": "From Local Workshop to Digital Authority",
-    "subtitle": "Florida Fresh \u2014 Upholstery Specialists",
-    "description": "Florida Fresh delivered elite upholstery services, but their online presence was timid. We built a bold visual platform that mirrors their craft, turning visitors into qualified leads.",
-    "highlightValue": "+40%",
-    "highlightLabel": "Revenue growth in 3 months",
-    "ctaLabel": "View project details",
-    "ctaHref": "/projects"
+    "badge": "PORTFOLIO SELECTION",
+    "title": "Implemented Outcomes",
+    "subtitle": "Custom solutions that convert authority into predictable revenue.",
+    "projects": [
+      {
+        "id": "etti",
+        "category": "Engineering & Construction",
+        "title": "Corporate Solidity",
+        "description": "We turned the technical complexity of large-scale builds into a robust digital showcase that communicates trust, rigor, and enterprise-ready delivery.",
+        "tags": ["Brand Authority", "Technical Portfolio"],
+        "icon": "hardHat",
+        "theme": "amber",
+        "ctaLabel": "View Project",
+        "ctaHref": "/projects"
+      },
+      {
+        "id": "dr-barreto",
+        "category": "Mental Health & Medicine",
+        "title": "Trust & Warmth",
+        "description": "A digital presence that connects doctor and patient with clarity. The interface prioritizes empathy, calm, and ethical care for mental-health journeys.",
+        "tags": ["Patient Experience", "Streamlined Booking"],
+        "icon": "brain",
+        "theme": "teal",
+        "ctaLabel": "View Project",
+        "ctaHref": "/projects"
+      }
+    ]
   },
   "contact": {
     "heading": "Contact",

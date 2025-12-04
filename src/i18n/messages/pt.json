@@ -203,15 +203,60 @@
       }
     ]
   },
+  "salesMachines": {
+    "eyebrow": "Sales Machines",
+    "title": "Não crio apenas sites. Crio Máquinas de Vendas.",
+    "subtitle": "Escolha a infraestrutura ideal para o momento do seu negócio.",
+    "cardTag": "Vendas",
+    "footnote": "Impacto imediato na percepção de valor",
+    "ctaLabel": "Ver Soluções Exclusivas",
+    "ctaHref": "/solutions",
+    "cards": [
+      {
+        "id": "authority",
+        "title": "Autoridade & Branding",
+        "description": "Design exclusivo e impactante. Saia da guerra de preços e torne-se a referência do setor."
+      },
+      {
+        "id": "conversion",
+        "title": "Máquinas de Conversão",
+        "description": "Landing Pages com missão única: vender. Estrutura persuasiva que guia até a compra."
+      },
+      {
+        "id": "showcase",
+        "title": "Vitrines 24 Horas",
+        "description": "Sua loja aberta 24h. Organização impecável para vender sem depender de vendedor."
+      }
+    ]
+  },
   "projectShowcase": {
-    "badge": "Estudo de Caso",
-    "title": "De Oficina Local a Referência Digital",
-    "subtitle": "Florida Fresh \u2014 Upholstery Specialists",
-    "description": "A Florida Fresh prestava um serviço de elite, mas sua presença online era tímida. Criamos uma plataforma visual robusta que reflete a qualidade do trabalho deles, transformando visitantes em leads qualificados.",
-    "highlightValue": "+40%",
-    "highlightLabel": "Aumento no faturamento em 3 meses",
-    "ctaLabel": "Ver Detalhes do Projeto",
-    "ctaHref": "/projects"
+    "badge": "PORTFOLIO SELECTION",
+    "title": "Resultados Implementados",
+    "subtitle": "Soluções personalizadas que transformam autoridade em faturamento.",
+    "projects": [
+      {
+        "id": "etti",
+        "category": "Engenharia & Construção",
+        "title": "Solidez Corporativa",
+        "description": "Transformamos a complexidade técnica de grandes obras em uma vitrine digital robusta, transmitindo a segurança e a autoridade que o setor exige.",
+        "tags": ["Autoridade de Marca", "Portfólio Técnico"],
+        "icon": "hardHat",
+        "theme": "amber",
+        "ctaLabel": "Ver Projeto",
+        "ctaHref": "/projects"
+      },
+      {
+        "id": "dr-barreto",
+        "category": "Saúde Mental & Medicina",
+        "title": "Confiança e Acolhimento",
+        "description": "Uma presença digital que aproxima médico e paciente. Design focado em usabilidade e serenidade, transmitindo ética e tranquilidade para a saúde mental.",
+        "tags": ["Experiência do Paciente", "Agendamento Simplificado"],
+        "icon": "brain",
+        "theme": "teal",
+        "ctaLabel": "Ver Projeto",
+        "ctaHref": "/projects"
+      }
+    ]
   },
   "contact": {
     "heading": "Contato",
@@ -225,32 +270,6 @@
   "unclaimedTerritory": {
     "badge": "REALIDADE DIGITAL",
     "title": "Você Construiu um Castelo no Terreno dos Outros.",
-        "salesMachines": {
-          "eyebrow": "Sales Machines",
-          "title": "Não crio apenas sites. Crio Máquinas de Vendas.",
-          "subtitle": "Escolha a infraestrutura ideal para o momento do seu negócio.",
-          "cardTag": "Vendas",
-          "footnote": "Impacto imediato na percepção de valor",
-          "ctaLabel": "Ver Soluções Exclusivas",
-          "ctaHref": "/solutions",
-          "cards": [
-            {
-              "id": "authority",
-              "title": "Autoridade & Branding",
-              "description": "Design exclusivo e impactante. Saia da guerra de preços e torne-se a referência do setor."
-            },
-            {
-              "id": "conversion",
-              "title": "Máquinas de Conversão",
-              "description": "Landing Pages com missão única: vender. Estrutura persuasiva que guia até a compra."
-            },
-            {
-              "id": "showcase",
-              "title": "Vitrines 24 Horas",
-              "description": "Sua loja aberta 24h. Organização impecável para vender sem depender de vendedor."
-            }
-          ]
-        },
     "subtitle": "Redes sociais mudam as regras, cortam o alcance e podem banir a sua conta sem aviso. Veja os 4 riscos de não ter a sua própria Sede Digital.",
     "blocks": [
       {

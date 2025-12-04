@@ -15,7 +15,15 @@ type AppProps = {
 };
 
 const App = ({ dictionary }: AppProps) => {
-  const { hero, contact, footer, loader, unclaimedTerritory, projectShowcase } = dictionary;
+  const {
+    hero,
+    contact,
+    footer,
+    loader,
+    unclaimedTerritory,
+    projectShowcase,
+    salesMachines,
+  } = dictionary;
   const unclaimedTerritoryCopy = unclaimedTerritory as UnclaimedTerritoryCopy;
 
   return (
@@ -29,7 +37,7 @@ const App = ({ dictionary }: AppProps) => {
     >
       <Hero dictionary={hero} />
       <ResponsiveUnclaimedTerritory copy={unclaimedTerritoryCopy} />
-      <SalesMachines />
+      <SalesMachines copy={salesMachines} />
       <ProjectShowcase copy={projectShowcase} />
       <Contact dictionary={contact} />
       <Footer dictionary={footer} />

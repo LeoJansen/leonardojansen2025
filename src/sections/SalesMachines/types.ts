@@ -1,7 +1,7 @@
 export type SalesMachinesCardId = "authority" | "conversion" | "showcase";
 
 export type SalesMachinesCardCopy = {
-  id: SalesMachinesCardId;
+  id: SalesMachinesCardId | string;
   title: string;
   description: string;
 };

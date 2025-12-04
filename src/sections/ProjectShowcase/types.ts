@@ -1,12 +1,22 @@
+export type ProjectShowcaseTheme = "amber" | "teal";
+
+export type ProjectShowcaseProject = {
+  id: string;
+  category: string;
+  title: string;
+  description: string;
+  tags: string[];
+  icon: "hardHat" | "brain" | "heartHandshake";
+  theme: ProjectShowcaseTheme;
+  ctaLabel: string;
+  ctaHref: string;
+};
+
 export type ProjectShowcaseCopy = {
   badge: string;
   title: string;
   subtitle: string;
-  description: string;
-  highlightValue: string;
-  highlightLabel: string;
-  ctaLabel: string;
-  ctaHref: string;
+  projects: ProjectShowcaseProject[];
 };
 
 export type ProjectShowcaseProps = {
