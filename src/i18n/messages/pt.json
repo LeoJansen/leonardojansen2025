@@ -204,7 +204,7 @@
     ]
   },
   "projectShowcase": {
-    "badge": "CASE STUDY [DEPLOYED]",
+    "badge": "Estudo de Caso",
     "title": "De Oficina Local a Referência Digital",
     "subtitle": "Florida Fresh \u2014 Upholstery Specialists",
     "description": "A Florida Fresh prestava um serviço de elite, mas sua presença online era tímida. Criamos uma plataforma visual robusta que reflete a qualidade do trabalho deles, transformando visitantes em leads qualificados.",
@@ -225,6 +225,32 @@
   "unclaimedTerritory": {
     "badge": "REALIDADE DIGITAL",
     "title": "Você Construiu um Castelo no Terreno dos Outros.",
+        "salesMachines": {
+          "eyebrow": "Sales Machines",
+          "title": "Não crio apenas sites. Crio Máquinas de Vendas.",
+          "subtitle": "Escolha a infraestrutura ideal para o momento do seu negócio.",
+          "cardTag": "Vendas",
+          "footnote": "Impacto imediato na percepção de valor",
+          "ctaLabel": "Ver Soluções Exclusivas",
+          "ctaHref": "/solutions",
+          "cards": [
+            {
+              "id": "authority",
+              "title": "Autoridade & Branding",
+              "description": "Design exclusivo e impactante. Saia da guerra de preços e torne-se a referência do setor."
+            },
+            {
+              "id": "conversion",
+              "title": "Máquinas de Conversão",
+              "description": "Landing Pages com missão única: vender. Estrutura persuasiva que guia até a compra."
+            },
+            {
+              "id": "showcase",
+              "title": "Vitrines 24 Horas",
+              "description": "Sua loja aberta 24h. Organização impecável para vender sem depender de vendedor."
+            }
+          ]
+        },
     "subtitle": "Redes sociais mudam as regras, cortam o alcance e podem banir a sua conta sem aviso. Veja os 4 riscos de não ter a sua própria Sede Digital.",
     "blocks": [
       {

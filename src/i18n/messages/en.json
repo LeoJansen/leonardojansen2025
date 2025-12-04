@@ -203,6 +203,32 @@
       }
     ]
   },
+  "salesMachines": {
+    "eyebrow": "Sales Machines",
+    "title": "I don't just build websites. I craft Sales Machines.",
+    "subtitle": "Choose the infrastructure that matches your business moment.",
+    "cardTag": "Sales",
+    "footnote": "Immediate impact on perceived value",
+    "ctaLabel": "See exclusive solutions",
+    "ctaHref": "/solutions",
+    "cards": [
+      {
+        "id": "authority",
+        "title": "Authority & Branding",
+        "description": "Exclusive, striking design. Leave price wars behind and become the reference in your space."
+      },
+      {
+        "id": "conversion",
+        "title": "Conversion Engines",
+        "description": "Landing pages with a single mission: sell. Persuasive flows that guide visitors to the purchase."
+      },
+      {
+        "id": "showcase",
+        "title": "24/7 Showrooms",
+        "description": "Your store open around the clock. Impeccable organization so you sell without relying on sales reps."
+      }
+    ]
+  },
   "projectShowcase": {
     "badge": "CASE STUDY [DEPLOYED]",
     "title": "From Local Workshop to Digital Authority",
