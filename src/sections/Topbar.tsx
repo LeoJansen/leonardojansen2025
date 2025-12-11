@@ -95,14 +95,6 @@ const Topbar = ({
     const resolvedCtaHref = ctaHref ?? buildHref("/contact");
     const resolvedSwitcher = localeSwitcher ?? DEFAULT_SWITCHER;
 
-    const [brandPrimary, brandAccent] = useMemo(() => {
-        const parts = brand.split(".");
-        if (parts.length >= 2) {
-            return [parts[0], `.${parts.slice(1).join(".")}`];
-        }
-        return ["LEO", ".DEV"];
-    }, [brand]);
-
     const isLinkActive = (href: string) => {
         if (!pathname) return false;
         if (href === `/${locale}`) {
@@ -205,14 +197,17 @@ const Topbar = ({
             <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-6">
                 <Link
                     href={buildHref("/")}
+                    aria-label={brand}
                     className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.5em]"
                 >
-                    <Image src="/assets/leoLogoIcon.svg" 
-                    alt="Logo"
-                     width={1570}
-                      height={417}
-                      className="w-10"
-                      />
+                    <Image
+                        src="/assets/leoLogoIcon.svg"
+                        alt={`${brand} logo`}
+                        width={1570}
+                        height={417}
+                        className="w-10"
+                    />
+                    <span className="sr-only">{brand}</span>
                 </Link>
 
                 <nav className="hidden items-center gap-8 lg:flex">
@@ -253,7 +248,7 @@ const Topbar = ({
                     type="button"
                     className="flex size-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition hover:border-white/30 lg:hidden"
                     aria-label="Abrir menu de navegação"
-                    aria-expanded={isOpen ? "true" : "false"}
+                    aria-expanded={isOpen}
                     onClick={() => setIsOpen((prev) => !prev)}
                 >
                     {isOpen ? <X className="size-5" /> : <Menu className="size-5" />}
