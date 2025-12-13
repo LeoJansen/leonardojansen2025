@@ -1,11 +1,12 @@
 import InitialLoader from "@/components/InitialLoader";
 import Hero from "@/sections/Hero/Hero";
 import Contact from "@/sections/Contact";
-import Footer from "@/sections/Footer";
+import FinalUplink from "@/sections/FinalUplink/index";
 import SalesMachines from "@/sections/SalesMachines";
 import ResponsiveUnclaimedTerritory from "@/sections/UnclaimedTerritory/ResponsiveUnclaimedTerritory";
 import ProjectShowcase from "@/sections/ProjectShowcase";
 import type { UnclaimedTerritoryCopy } from "@/sections/UnclaimedTerritory/UnclaimedTerritory";
+import type { ProjectShowcaseCopy } from "@/sections/ProjectShowcase/types";
 import type { Dictionary } from "@/i18n/getDictionary";
 import type { Locale } from "@/i18n/config";
 
@@ -18,13 +19,13 @@ const App = ({ dictionary }: AppProps) => {
   const {
     hero,
     contact,
-    footer,
     loader,
     unclaimedTerritory,
     projectShowcase,
     salesMachines,
   } = dictionary;
   const unclaimedTerritoryCopy = unclaimedTerritory as UnclaimedTerritoryCopy;
+  const projectShowcaseCopy = projectShowcase as unknown as ProjectShowcaseCopy;
 
   return (
     <InitialLoader
@@ -38,9 +39,9 @@ const App = ({ dictionary }: AppProps) => {
       <Hero dictionary={hero} />
       <ResponsiveUnclaimedTerritory copy={unclaimedTerritoryCopy} />
       <SalesMachines copy={salesMachines} />
-      <ProjectShowcase copy={projectShowcase} />
+      <ProjectShowcase copy={projectShowcaseCopy} />
       <Contact dictionary={contact} />
-      <Footer dictionary={footer} />
+      <FinalUplink />
     </InitialLoader>
   );
 };
