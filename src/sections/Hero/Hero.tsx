@@ -25,11 +25,24 @@ type HeroProps = {
 const Hero = ({ dictionary }: HeroProps) => {
   const [spotsOn, setSpotsOn] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [dpr, setDpr] = useState<[number, number]>([1, 1.25]);
   const switchBgRef = useRef<HTMLSpanElement | null>(null);
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (!mounted || typeof window === "undefined") {
+      return;
+    }
+
+    const isLowEndDevice =
+      window.matchMedia("(max-width: 768px)").matches ||
+      ("hardwareConcurrency" in navigator && navigator.hardwareConcurrency <= 4);
+
+    setDpr(isLowEndDevice ? [1, 1.1] : [1, 1.25]);
+  }, [mounted]);
 
   useEffect(() => {
     if (!mounted || !switchBgRef.current) {
@@ -68,8 +81,8 @@ const Hero = ({ dictionary }: HeroProps) => {
         <Canvas
           shadows
           className="!h-full !w-full"
-          gl={{ alpha: false }}
-          dpr={[1, 1.5]}
+          gl={{ alpha: false, antialias: false, powerPreference: "high-performance" }}
+          dpr={dpr}
           camera={{ position: [0, 3, 14], fov: 15 }}
         >
           <CanvasComponent spotsOn={spotsOn} lightMessage={dictionary.lightMessage} />

@@ -8,7 +8,7 @@ export function Ground() {
       <MeshReflectorMaterial
         // Reflection quality
         blur={[20, 10]}
-        resolution={2048}
+        resolution={1024}
         mixBlur={3}
         mixContrast={1}
         mixStrength={11.5}

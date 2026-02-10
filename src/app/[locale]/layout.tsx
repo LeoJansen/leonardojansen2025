@@ -19,8 +19,12 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.leonardojansen.com";
+
 function buildAlternateLanguages() {
-  return Object.fromEntries(locales.map((locale) => [locale, `/${locale}`]));
+  return Object.fromEntries(
+    locales.map((locale) => [locale, new URL(`/${locale}`, siteUrl).toString()])
+  );
 }
 
 export async function generateMetadata({
@@ -34,8 +38,8 @@ export async function generateMetadata({
     title: dictionary.metadata.title,
     description: dictionary.metadata.description,
     alternates: {
-      canonical: `/${locale}`,
-  languages: buildAlternateLanguages(),
+      canonical: new URL(`/${locale}`, siteUrl),
+      languages: buildAlternateLanguages(),
     },
   };
 }

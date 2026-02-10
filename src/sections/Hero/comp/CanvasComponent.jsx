@@ -59,9 +59,9 @@ export const CanvasComponent = ({ spotsOn = true, lightMessage }) => {
             position={[0, -2.001, 0]}
             opacity={0.35}
             scale={20}
-            blur={2.5}
+            blur={2}
             far={10}
-            resolution={1024}
+            resolution={512}
             color="#000000"
           />
           {/* To enable the video texture, put a compatible video under /public and pass videoSrc (e.g., videoSrc="/intro.mp4") */}
@@ -117,9 +117,9 @@ function MovingSpot({ vec = new Vector3(), enabled = true, ...props }) {
       // Improve shadow quality for moving spotlights
       shadow-bias={-0.0005}
       shadow-normalBias={0.02}
-      shadow-mapSize-width={2048}
-      shadow-mapSize-height={2048}
-      shadow-radius={32}
+      shadow-mapSize-width={1024}
+      shadow-mapSize-height={1024}
+      shadow-radius={16}
       {...props}
     />
   )

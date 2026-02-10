@@ -20,19 +20,8 @@ export function VideoText({
   videoSrc, // optional: e.g. "/intro.mp4" placed under /public
   ...props
 }) {
-  // Create the video element lazily on the client and handle unsupported/missing sources gracefully
-  const [video] = useState(() => {
-    const vid = document.createElement("video");
-    Object.assign(vid, {
-      src: videoSrc || "/assets/drei.mp4",
-      crossOrigin: "anonymous",
-      loop: true,
-      muted: true,
-      playsInline: true,
-      preload: "auto",
-    });
-    return vid;
-  });
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
+  const [video, setVideo] = useState(null);
 
   const [ready, setReady] = useState(false);
   const primaryTextRef = useRef(null);
@@ -59,7 +48,54 @@ export function VideoText({
   }, [scale2]);
 
   useEffect(() => {
-    if (!video) return;
+    if (typeof window === "undefined") return undefined;
+
+    let idleId;
+    let timeoutId;
+    const schedule = () => setShouldLoadVideo(true);
+
+    if ("requestIdleCallback" in window) {
+      idleId = window.requestIdleCallback(schedule, { timeout: 1500 });
+    } else {
+      timeoutId = window.setTimeout(schedule, 800);
+    }
+
+    return () => {
+      if (idleId) {
+        window.cancelIdleCallback(idleId);
+      }
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!shouldLoadVideo) return undefined;
+
+    const vid = document.createElement("video");
+    Object.assign(vid, {
+      src: videoSrc || "/assets/drei.mp4",
+      crossOrigin: "anonymous",
+      loop: true,
+      muted: true,
+      playsInline: true,
+      preload: "metadata",
+    });
+    setVideo(vid);
+
+    return () => {
+      vid.pause();
+      vid.removeAttribute("src");
+      vid.load();
+    };
+  }, [shouldLoadVideo, videoSrc]);
+
+  useEffect(() => {
+    if (!video) {
+      setReady(false);
+      return;
+    }
 
     const onCanPlay = () => {
       setReady(true);

@@ -43,5 +43,3 @@ export function Chair(props) {
     </group>
   )
 }
-
-useGLTF.preload('/models/chair.glb')
